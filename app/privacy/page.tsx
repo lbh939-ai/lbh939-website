@@ -145,7 +145,7 @@ export default function PrivacyPage() {
         서비스의 개인정보 처리에 관한 업무 총괄 및 이용자 권리 행사 등 관련 문의는 다음 연락처로 접수할 수 있습니다.
       </p>
       <ul>
-        <li><strong>개인정보 보호책임자</strong>: 이병하</li>
+        <li><strong>개인정보 보호책임자</strong>: 임병하</li>
         <li><strong>이메일</strong>: <a href="mailto:lbh939@gmail.com">lbh939@gmail.com</a></li>
         <li>
           <strong>카카오톡 채널</strong>:{" "}

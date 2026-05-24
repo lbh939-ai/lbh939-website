@@ -93,7 +93,7 @@ export default function AccountDeletePage() {
       <h2>8. 문의</h2>
       <p>계정 삭제 요청에 관한 문의는 다음 경로로 접수할 수 있습니다.</p>
       <ul>
-        <li><strong>개인정보 보호책임자</strong>: 이병하</li>
+        <li><strong>개인정보 보호책임자</strong>: 임병하</li>
         <li>이메일: <a href="mailto:lbh939@gmail.com">lbh939@gmail.com</a></li>
         <li>
           카카오톡 채널:{" "}
