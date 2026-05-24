@@ -138,7 +138,7 @@ export default function TermsPage() {
       <p>서비스 관련 문의 및 의견은 다음 경로로 접수할 수 있습니다.</p>
       <ul>
         <li>이메일: <a href="mailto:lbh939@gmail.com">lbh939@gmail.com</a></li>
-        <li>카카오톡 채널: <a href="https://pf.kakao.com/_CAIxbX" target="_blank" rel="noopener noreferrer">@lbh939</a></li>
+        <li>카카오톡 채널: <a href="https://pf.kakao.com/_CAIxbX" target="_blank" rel="noopener noreferrer">@quantapp</a></li>
       </ul>
 
       <hr />

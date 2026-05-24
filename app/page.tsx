@@ -114,7 +114,7 @@ export default function Home() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="text-xs text-[var(--secondary)] mb-0.5">카카오톡 채널</div>
-                  <div className="text-sm font-medium truncate">@lbh939</div>
+                  <div className="text-sm font-medium truncate">@quantapp</div>
                 </div>
               </a>
             </div>

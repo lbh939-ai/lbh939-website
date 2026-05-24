@@ -150,7 +150,7 @@ export default function PrivacyPage() {
         <li>
           <strong>카카오톡 채널</strong>:{" "}
           <a href="https://pf.kakao.com/_CAIxbX" target="_blank" rel="noopener noreferrer">
-            @lbh939
+            @quantapp
           </a>
         </li>
       </ul>

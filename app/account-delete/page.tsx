@@ -32,7 +32,7 @@ export default function AccountDeletePage() {
         <li>
           카카오톡 채널:{" "}
           <a href="https://pf.kakao.com/_CAIxbX" target="_blank" rel="noopener noreferrer">
-            @lbh939
+            @quantapp
           </a>
         </li>
         <li>
@@ -98,7 +98,7 @@ export default function AccountDeletePage() {
         <li>
           카카오톡 채널:{" "}
           <a href="https://pf.kakao.com/_CAIxbX" target="_blank" rel="noopener noreferrer">
-            @lbh939
+            @quantapp
           </a>
         </li>
       </ul>
