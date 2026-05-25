@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 // 준비 중인 기능 (= 작업 지시서 8번 검증된 사실 안 "계획" 단독 기록).
 //   러닝뷰는 실제 동작 기능 0개 / Flutter 기본 데모 코드만 존재 / 백엔드 폴더 미생성.
-//   따라서 전부 "계획" 으로 명시.
+//   따라서 전부 "계획" 으로 명시. 존댓말 통일 (= 2차 정정).
 const PLANS = [
   {
     icon: CalendarDays,
@@ -43,6 +43,14 @@ const PLANS = [
     desc: "러너들과 소통 (계획)",
   },
 ];
+
+// 사용 기술 (= 작업 지시서 7번 신규 / 2차 정정).
+//   매우 중요 = "사용 중" vs "사용 예정" 시각·문구 명확히 분리.
+//   - 사용 중 = Flutter / Dart (= 현재 실제 사용)
+//   - 사용 예정 = FastAPI / Gemini / SQLite (= 계획 단계 / 아직 미사용)
+//   확실치 않은 기술은 칩에서 생략.
+const TECH_IN_USE = ["Flutter", "Dart"];
+const TECH_PLANNED = ["FastAPI", "Gemini", "SQLite"];
 
 export default function RunningViewPage() {
   return (
@@ -86,6 +94,24 @@ export default function RunningViewPage() {
           </div>
         </section>
 
+        {/* ── 왜 만드는지 / 어떻게 쓰게 될지 (= 작업 지시서 7번 신규 / 2차 정정) ── */}
+        <section className="px-4 sm:px-6 lg:px-12 py-12 sm:py-16">
+          <div className="max-w-[1200px] mx-auto">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-6">이 앱을 만드는 이유</h2>
+            <div className="max-w-3xl space-y-4">
+              <p className="text-base sm:text-lg text-[var(--secondary)] leading-relaxed">
+                마라톤 일정, 러닝 기록, 코칭 정보를 여러 앱과 사이트로 찾아다니지 않고 한 앱 안에서 정리해보고 싶어서 시작했습니다.
+                직접 러닝을 즐기는 1인 개발자가 실제로 쓸 만한 러닝 도구를 만들어 보는 프로젝트입니다.
+              </p>
+              <p className="text-base sm:text-lg text-[var(--secondary)] leading-relaxed">
+                출시 시점에는 안드로이드 앱으로 받아보실 수 있도록 준비 중입니다.
+                다만 현재는 초기 개발 단계라 실제 화면이나 사용 방법을 보여드리기 어렵습니다.
+                준비가 끝나면 이 페이지에서 자세히 안내해드리겠습니다.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* ── 준비 중인 기능 ── */}
         <section className="px-4 sm:px-6 lg:px-12 py-12 sm:py-16 bg-[var(--section-bg)]">
           <div className="max-w-[1200px] mx-auto">
@@ -116,8 +142,58 @@ export default function RunningViewPage() {
           </div>
         </section>
 
+        {/* ── 사용 기술 (= 작업 지시서 7번 신규 / 2차 정정 / 정직 표기 의무) ── */}
+        {/*
+          시각 분리 규칙:
+            - 사용 중 = 채움 칩 (= 기본 bg / border / 텍스트 = 일반 톤)
+            - 사용 예정 = 점선 외곽 + 흐린 텍스트 (= 차분한 톤 / 단 새 색 미사용 / 기존 var(--*) 만)
+          절대 "사용 예정"을 "사용 중"으로 표기하지 않음.
+        */}
+        <section className="px-4 sm:px-6 lg:px-12 py-12 sm:py-16">
+          <div className="max-w-[1200px] mx-auto">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-2">사용 기술</h2>
+            <p className="text-sm sm:text-base text-[var(--secondary)] mb-8">
+              현재 실제로 쓰는 기술과 앞으로 사용 예정인 기술을 구분해 표기합니다.
+            </p>
+
+            <div className="space-y-6 max-w-3xl">
+              <div>
+                <h3 className="text-sm font-bold text-[var(--foreground)] mb-3">
+                  사용 중
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {TECH_IN_USE.map((label) => (
+                    <span
+                      key={label}
+                      className="inline-flex items-center px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-[var(--section-bg)] border border-[var(--card-border)] text-[var(--secondary)]"
+                    >
+                      {label}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <h3 className="text-sm font-bold text-[var(--secondary)] mb-3">
+                  사용 예정
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {TECH_PLANNED.map((label) => (
+                    <span
+                      key={label}
+                      className="inline-flex items-center px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-transparent border border-dashed border-[var(--card-border)] text-[var(--tertiary)]"
+                    >
+                      {label} (사용 예정)
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* ── 상태 안내 ── */}
-        <section className="px-4 sm:px-6 lg:px-12 py-12 sm:py-20">
+        <section className="px-4 sm:px-6 lg:px-12 py-12 sm:py-20 bg-[var(--section-bg)]">
           <div className="max-w-[1200px] mx-auto">
             <div className="max-w-3xl p-6 sm:p-8 rounded-2xl bg-[var(--card-bg)] border border-[var(--card-border)] shadow-[var(--shadow-card)]">
               <div className="flex items-start gap-4">
