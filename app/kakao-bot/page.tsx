@@ -8,6 +8,7 @@ import {
   Bitcoin,
   ChartLine,
   Play,
+  TrendingUp,
   Mail,
 } from "lucide-react";
 import { Header } from "@/components/Header";
@@ -28,27 +29,32 @@ const FEATURES = [
   {
     icon: Coins,
     title: "환율 조회",
-    desc: "주요 통화 환율을 알려드립니다.",
+    desc: "USD · EUR · JPY · CNY 실시간 환율을 알려드립니다.",
   },
   {
     icon: Activity,
     title: "공포 · 탐욕 지수",
-    desc: "시장 심리 지표를 보여드립니다.",
+    desc: "CNN 공포탐욕지수로 시장 심리를 보여드립니다.",
   },
   {
     icon: Bitcoin,
     title: "코인 시세",
-    desc: "코인 가격을 조회해드립니다.",
+    desc: "BTC · ETH 시세와 김치 프리미엄을 보여드립니다.",
   },
   {
     icon: ChartLine,
     title: "국내 · 해외 주식 시세",
-    desc: "종목 코드 · 이름 · 티커로 시세를 조회해드립니다.",
+    desc: "종목 코드 · 이름 · 티커로 시세 · RSI · 거래량 비교를 보여드립니다.",
   },
   {
     icon: Play,
     title: "유튜브 요약",
-    desc: "유튜브 링크를 감지해 영상 내용을 요약해드립니다.",
+    desc: "유튜브 링크를 감지해 AI가 영상 내용을 요약해드립니다.",
+  },
+  {
+    icon: TrendingUp,
+    title: "주말 증시",
+    desc: "주말에도 나스닥 · 오일 · 골드 시세를 확인하실 수 있습니다.",
   },
 ];
 
@@ -56,7 +62,8 @@ const FEATURES = [
 const TECH_STACK = [
   "Python",
   "FastAPI",
-  "메신저봇R 연동",
+  "Kotlin (QuantBridge)",
+  "SQLite",
 ];
 
 export default function KakaoBotPage() {
@@ -115,9 +122,15 @@ export default function KakaoBotPage() {
               <p className="text-base sm:text-lg text-[var(--secondary)] leading-relaxed">
                 사용 방법은 단톡방 안에서 한 줄 명령을 입력하시면 됩니다.
                 예를 들면 환율은 <code className="px-1.5 py-0.5 rounded bg-[var(--section-bg)] border border-[var(--card-border)] text-[var(--foreground)] text-sm">!환율</code>,
-                미국 주식은 <code className="px-1.5 py-0.5 rounded bg-[var(--section-bg)] border border-[var(--card-border)] text-[var(--foreground)] text-sm">!aapl</code>,
-                한국 주식은 <code className="px-1.5 py-0.5 rounded bg-[var(--section-bg)] border border-[var(--card-border)] text-[var(--foreground)] text-sm">!005930</code> 같은 형식이고,
+                코인 시세는 <code className="px-1.5 py-0.5 rounded bg-[var(--section-bg)] border border-[var(--card-border)] text-[var(--foreground)] text-sm">!코인</code>,
+                공포 · 탐욕 지수는 <code className="px-1.5 py-0.5 rounded bg-[var(--section-bg)] border border-[var(--card-border)] text-[var(--foreground)] text-sm">!공탐</code>,
+                주말 증시는 <code className="px-1.5 py-0.5 rounded bg-[var(--section-bg)] border border-[var(--card-border)] text-[var(--foreground)] text-sm">!위켄</code> 같은 형식입니다.
+                주식은 미국의 경우 <code className="px-1.5 py-0.5 rounded bg-[var(--section-bg)] border border-[var(--card-border)] text-[var(--foreground)] text-sm">!aapl</code>처럼 티커로,
+                한국은 <code className="px-1.5 py-0.5 rounded bg-[var(--section-bg)] border border-[var(--card-border)] text-[var(--foreground)] text-sm">!005930</code>처럼 종목 코드나 <code className="px-1.5 py-0.5 rounded bg-[var(--section-bg)] border border-[var(--card-border)] text-[var(--foreground)] text-sm">!삼성전자</code>처럼 한글 종목명으로 조회하실 수 있고,
                 유튜브 링크는 <code className="px-1.5 py-0.5 rounded bg-[var(--section-bg)] border border-[var(--card-border)] text-[var(--foreground)] text-sm">!</code> 없이 그대로 올리시면 자동으로 요약해드립니다.
+              </p>
+              <p className="text-base sm:text-lg text-[var(--secondary)] leading-relaxed">
+                명령어 전체 목록은 단톡방에서 <code className="px-1.5 py-0.5 rounded bg-[var(--section-bg)] border border-[var(--card-border)] text-[var(--foreground)] text-sm">!도움</code>을 입력하시면 확인하실 수 있습니다.
               </p>
             </div>
           </div>
@@ -128,7 +141,7 @@ export default function KakaoBotPage() {
           <div className="max-w-[1200px] mx-auto">
             <h2 className="text-2xl sm:text-3xl font-bold mb-2">핵심 기능</h2>
             <p className="text-sm sm:text-base text-[var(--secondary)] mb-10">
-              단톡방에서 한 줄 명령으로 받아보실 수 있는 5가지입니다.
+              단톡방에서 한 줄 명령으로 받아보실 수 있는 6가지입니다.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
