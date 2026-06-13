@@ -52,6 +52,25 @@ const FEATURES = [
 ];
 
 const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.lbh939.quantapp";
+const APP_STORE_URL = "https://apps.apple.com/app/id6775523997";
+
+function DownloadButtons({ size = "sm" }: { size?: "sm" | "lg" }) {
+  const padding = size === "lg" ? "px-7 py-3.5" : "px-6 py-3";
+  const iconSize = size === "lg" ? 20 : 18;
+  const baseClass = `inline-flex items-center gap-2 ${padding} rounded-xl bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white font-semibold text-sm sm:text-base transition-colors`;
+  return (
+    <div className="flex flex-wrap gap-3">
+      <a href={PLAY_STORE_URL} target="_blank" rel="noopener noreferrer" className={baseClass}>
+        <Download size={iconSize} />
+        Play Store에서 받기
+      </a>
+      <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" className={baseClass}>
+        <Download size={iconSize} />
+        App Store에서 받기
+      </a>
+    </div>
+  );
+}
 
 export default function QuantappPage() {
   return (
@@ -89,15 +108,7 @@ export default function QuantappPage() {
               실시간 시세, 포트폴리오 관리, 과매수 · 과매도 신호까지 한 앱에서 진행할 수 있습니다.
             </p>
 
-            <a
-              href={PLAY_STORE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white font-semibold text-sm sm:text-base transition-colors"
-            >
-              <Download size={18} />
-              Play Store에서 받기
-            </a>
+            <DownloadButtons />
           </div>
         </section>
 
@@ -164,19 +175,13 @@ export default function QuantappPage() {
           <div className="max-w-[1200px] mx-auto text-center">
             <h2 className="text-2xl sm:text-3xl font-bold mb-4">지금 다운로드</h2>
             <p className="text-sm sm:text-base text-[var(--secondary)] mb-8 max-w-xl mx-auto">
-              안드로이드에서 무료로 받아볼 수 있습니다.
+              Android · iOS에서 무료로 받아볼 수 있습니다.
               <br className="hidden sm:block" />
               가입 시 AI 분석 3회 무료 제공.
             </p>
-            <a
-              href={PLAY_STORE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white font-semibold transition-colors"
-            >
-              <Download size={20} />
-              Play Store에서 받기
-            </a>
+            <div className="flex justify-center">
+              <DownloadButtons size="lg" />
+            </div>
           </div>
         </section>
       </main>
