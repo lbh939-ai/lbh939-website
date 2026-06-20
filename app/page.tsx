@@ -33,7 +33,7 @@ export default function Home() {
               <span>1인 개발자</span>
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-5">
-              혼자 기획하고 만듭니다.
+              제가 실제로 쓰는 도구를 만들고, 모두의 일상에 편리함을 더합니다.
             </h1>
             <p className="text-base sm:text-lg text-[var(--secondary)] max-w-2xl mx-auto">
               투자, 일상, 러닝까지 — 진짜로 쓸 만한 도구를 만듭니다.
