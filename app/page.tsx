@@ -6,6 +6,7 @@ import {
   Sparkles,
   Send,
   Footprints,
+  Languages,
 } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -66,7 +67,7 @@ export default function Home() {
                       </span>
                     </div>
                     <p className="text-sm text-[var(--secondary)] leading-relaxed">
-                      미국 주식 AI 분석 도구
+                      미국·한국 주식을 AI로 분석하는 앱
                     </p>
                   </div>
                 </div>
@@ -130,24 +131,51 @@ export default function Home() {
                 </div>
               </Link>
 
-              {/* 4. 러닝뷰 카드 (= 제작 중) */}
+              {/* 4. 트럼프봇 카드 (= 운영 중 / 신규) */}
+              <Link
+                href="/trump-bot"
+                className="group relative overflow-hidden rounded-2xl bg-[var(--card-bg)] border border-[var(--card-border)] p-6 sm:p-8 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-200 hover:-translate-y-0.5"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-[var(--accent)] text-white inline-flex items-center justify-center">
+                    <Languages size={24} />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-1">
+                      <h3 className="text-lg sm:text-xl font-bold">트럼프봇</h3>
+                      <span className="px-2 py-0.5 text-[10px] sm:text-xs rounded-full bg-[var(--accent)]/10 text-[var(--accent)] font-medium">
+                        운영 중
+                      </span>
+                    </div>
+                    <p className="text-sm text-[var(--secondary)] leading-relaxed">
+                      트럼프의 새 글을 한국어로 번역해 보내주는 봇
+                    </p>
+                  </div>
+                </div>
+                <div className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-[var(--accent)] group-hover:gap-2 transition-all">
+                  자세히 보기
+                  <ArrowRight size={16} />
+                </div>
+              </Link>
+
+              {/* 5. 러닝뷰 카드 (= 베타 모집 중 / warning 보조색으로 구분) */}
               <Link
                 href="/running-view"
                 className="group relative overflow-hidden rounded-2xl bg-[var(--card-bg)] border border-[var(--card-border)] p-6 sm:p-8 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-200 hover:-translate-y-0.5"
               >
                 <div className="flex items-start gap-4">
-                  <div className="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-[var(--section-bg)] border border-[var(--card-border)] text-[var(--secondary)] inline-flex items-center justify-center">
+                  <div className="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-[var(--warning)]/10 text-[var(--warning)] inline-flex items-center justify-center">
                     <Footprints size={24} />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1">
                       <h3 className="text-lg sm:text-xl font-bold">러닝뷰</h3>
-                      <span className="px-2 py-0.5 text-[10px] sm:text-xs rounded-full bg-[var(--section-bg)] border border-[var(--card-border)] text-[var(--secondary)] font-medium">
-                        제작 중
+                      <span className="px-2 py-0.5 text-[10px] sm:text-xs rounded-full bg-[var(--warning)]/10 text-[var(--warning)] font-medium">
+                        베타 모집 중
                       </span>
                     </div>
                     <p className="text-sm text-[var(--secondary)] leading-relaxed">
-                      러닝 · 마라톤 일정과 기록을 담을 앱 (준비 중)
+                      마라톤 일정 · AI 코치 · 러닝 커뮤니티 앱
                     </p>
                   </div>
                 </div>

@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/quantapp`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/telegram-bot`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/kakao-bot`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${base}/trump-bot`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/running-view`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/privacy`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
     { url: `${base}/terms`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },

@@ -39,7 +39,7 @@ const FEATURES = [
   {
     icon: Bitcoin,
     title: "코인 시세",
-    desc: "BTC · ETH 시세와 김치 프리미엄을 보여드립니다.",
+    desc: "업비트 · 바이낸스 시세와 김치 프리미엄을 보여드립니다.",
   },
   {
     icon: ChartLine,
@@ -53,8 +53,8 @@ const FEATURES = [
   },
   {
     icon: TrendingUp,
-    title: "주말 증시",
-    desc: "주말에도 나스닥 · 오일 · 골드 시세를 확인하실 수 있습니다.",
+    title: "주말 해외선물",
+    desc: "주말에도 나스닥 · 오일 · 골드 등 해외선물 실시간 시세를 확인하실 수 있습니다.",
   },
 ];
 
@@ -62,7 +62,7 @@ const FEATURES = [
 const TECH_STACK = [
   "Python",
   "FastAPI",
-  "Kotlin (QuantBridge)",
+  "Kotlin",
   "SQLite",
 ];
 

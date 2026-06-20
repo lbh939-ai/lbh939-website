@@ -6,8 +6,8 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "퀀트뷰 — 미국 주식 AI 분석 도구",
-  description: "AI 종합 분석, 물타기 분석, 오늘의 신호, 승률 확률, 포트폴리오 관리까지. 미국 주식 투자자를 위한 AI 분석 앱.",
+  title: "퀀트뷰 — 미국·한국 주식 AI 분석 도구",
+  description: "AI 종합 분석, 물타기 분석, 오늘의 신호, 승률 확률, 포트폴리오 관리까지. 미국·한국 주식 투자자를 위한 AI 분석 앱.",
 };
 
 const SCREENSHOTS = [
@@ -97,13 +97,13 @@ export default function QuantappPage() {
                   퀀트뷰
                 </h1>
                 <p className="text-sm sm:text-base text-[var(--secondary)]">
-                  미국 주식 AI 분석 도구
+                  미국·한국 주식 AI 분석 도구
                 </p>
               </div>
             </div>
 
             <p className="text-base sm:text-lg text-[var(--secondary)] leading-relaxed max-w-3xl mb-8">
-              퀀트뷰는 미국 주식 투자자를 위한 AI 분석 앱입니다.
+              퀀트뷰는 미국·한국 주식 투자자를 위한 AI 분석 앱입니다.
               기술 지표 · 거시 환경 · 뉴스를 통합 분석해 데이터 기반 의사 결정을 돕습니다.
               실시간 시세, 포트폴리오 관리, 과매수 · 과매도 신호까지 한 앱에서 진행할 수 있습니다.
             </p>
