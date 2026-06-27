@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Download, Brain, Droplet, Bell, Target, FolderHeart } from "lucide-react";
+import { ArrowLeft, Download, Brain, Droplet, Bell, Target, FolderHeart, Send, ArrowRight } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
@@ -89,8 +89,14 @@ export default function QuantappPage() {
             </Link>
 
             <div className="flex items-start gap-5 mb-8">
-              <div className="shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-[var(--accent)] text-white inline-flex items-center justify-center text-3xl sm:text-4xl font-bold">
-                Q
+              <div className="shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border border-[var(--card-border)]">
+                <Image
+                  src="/icons/quantview.png"
+                  alt="퀀트뷰 앱 아이콘"
+                  width={80}
+                  height={80}
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="flex-1 min-w-0">
                 <h1 className="text-2xl sm:text-4xl font-bold tracking-tight mb-2">
@@ -109,6 +115,26 @@ export default function QuantappPage() {
             </p>
 
             <DownloadButtons />
+
+            {/* 텔레그램 봇 연계 안내 (= 같은 분석 엔진 / 텔레그램에서도 이용 가능) */}
+            <Link
+              href="/telegram-bot"
+              className="group mt-6 flex items-center gap-3 p-4 rounded-xl bg-[var(--card-bg)] border border-[var(--card-border)] hover:border-[var(--accent)] transition-colors max-w-xl"
+            >
+              <div className="shrink-0 w-10 h-10 rounded-lg bg-[var(--accent)]/10 inline-flex items-center justify-center text-[var(--accent)]">
+                <Send size={18} />
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="text-sm font-bold">텔레그램 봇으로도 이용 가능</div>
+                <div className="text-xs text-[var(--secondary)] leading-relaxed">
+                  퀀트뷰의 분석을 텔레그램에서도 받아보실 수 있습니다
+                </div>
+              </div>
+              <ArrowRight
+                size={16}
+                className="shrink-0 text-[var(--secondary)] group-hover:text-[var(--accent)] group-hover:translate-x-0.5 transition-all"
+              />
+            </Link>
           </div>
         </section>
 

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   Mail,
@@ -5,7 +6,6 @@ import {
   ArrowRight,
   Sparkles,
   Send,
-  Footprints,
   Languages,
 } from "lucide-react";
 import { Header } from "@/components/Header";
@@ -50,14 +50,20 @@ export default function Home() {
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {/* 1. 퀀트뷰 카드 (= 출시) */}
+              {/* 1. 퀀트뷰 카드 (= 출시 / 실제 앱 아이콘) */}
               <Link
                 href="/quantapp"
                 className="group relative overflow-hidden rounded-2xl bg-[var(--card-bg)] border border-[var(--card-border)] p-6 sm:p-8 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-200 hover:-translate-y-0.5"
               >
                 <div className="flex items-start gap-4">
-                  <div className="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-[var(--accent)] text-white inline-flex items-center justify-center text-2xl sm:text-3xl font-bold">
-                    Q
+                  <div className="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-[var(--card-border)]">
+                    <Image
+                      src="/icons/quantview.png"
+                      alt="퀀트뷰 앱 아이콘"
+                      width={56}
+                      height={56}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1">
@@ -67,7 +73,7 @@ export default function Home() {
                       </span>
                     </div>
                     <p className="text-sm text-[var(--secondary)] leading-relaxed">
-                      미국·한국 주식을 AI로 분석하는 앱
+                      AI 종합분석 · 공포탐욕지수 · 실적일정
                     </p>
                   </div>
                 </div>
@@ -77,7 +83,40 @@ export default function Home() {
                 </div>
               </Link>
 
-              {/* 2. 텔레그램 봇 카드 (= 운영 중) */}
+              {/* 2. 러닝뷰 카드 (= 출시 / 실제 앱 아이콘) */}
+              <Link
+                href="/running-view"
+                className="group relative overflow-hidden rounded-2xl bg-[var(--card-bg)] border border-[var(--card-border)] p-6 sm:p-8 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-200 hover:-translate-y-0.5"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-[var(--card-border)]">
+                    <Image
+                      src="/icons/runningview.png"
+                      alt="러닝뷰 앱 아이콘"
+                      width={56}
+                      height={56}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-1">
+                      <h3 className="text-lg sm:text-xl font-bold">러닝뷰</h3>
+                      <span className="px-2 py-0.5 text-[10px] sm:text-xs rounded-full bg-[var(--accent)]/10 text-[var(--accent)] font-medium">
+                        출시
+                      </span>
+                    </div>
+                    <p className="text-sm text-[var(--secondary)] leading-relaxed">
+                      마라톤 일정 · AI 코치 · 러닝 커뮤니티 앱
+                    </p>
+                  </div>
+                </div>
+                <div className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-[var(--accent)] group-hover:gap-2 transition-all">
+                  자세히 보기
+                  <ArrowRight size={16} />
+                </div>
+              </Link>
+
+              {/* 3. 텔레그램 봇 카드 (= 운영 중) */}
               <Link
                 href="/telegram-bot"
                 className="group relative overflow-hidden rounded-2xl bg-[var(--card-bg)] border border-[var(--card-border)] p-6 sm:p-8 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-200 hover:-translate-y-0.5"
@@ -104,7 +143,7 @@ export default function Home() {
                 </div>
               </Link>
 
-              {/* 3. 카카오톡 봇 카드 (= 운영 중 / 3차 정정 안 강조색 계열로 변경) */}
+              {/* 4. 카카오톡 봇 카드 (= 운영 중) */}
               <Link
                 href="/kakao-bot"
                 className="group relative overflow-hidden rounded-2xl bg-[var(--card-bg)] border border-[var(--card-border)] p-6 sm:p-8 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-200 hover:-translate-y-0.5"
@@ -131,7 +170,7 @@ export default function Home() {
                 </div>
               </Link>
 
-              {/* 4. 트럼프봇 카드 (= 운영 중 / 신규) */}
+              {/* 5. 트럼프봇 카드 (= 운영 중) */}
               <Link
                 href="/trump-bot"
                 className="group relative overflow-hidden rounded-2xl bg-[var(--card-bg)] border border-[var(--card-border)] p-6 sm:p-8 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-200 hover:-translate-y-0.5"
@@ -149,33 +188,6 @@ export default function Home() {
                     </div>
                     <p className="text-sm text-[var(--secondary)] leading-relaxed">
                       트럼프의 새 글을 한국어로 번역해 보내주는 봇
-                    </p>
-                  </div>
-                </div>
-                <div className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-[var(--accent)] group-hover:gap-2 transition-all">
-                  자세히 보기
-                  <ArrowRight size={16} />
-                </div>
-              </Link>
-
-              {/* 5. 러닝뷰 카드 (= 출시 / 강조색으로 통일) */}
-              <Link
-                href="/running-view"
-                className="group relative overflow-hidden rounded-2xl bg-[var(--card-bg)] border border-[var(--card-border)] p-6 sm:p-8 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-200 hover:-translate-y-0.5"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-[var(--accent)] text-white inline-flex items-center justify-center">
-                    <Footprints size={24} />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 mb-1">
-                      <h3 className="text-lg sm:text-xl font-bold">러닝뷰</h3>
-                      <span className="px-2 py-0.5 text-[10px] sm:text-xs rounded-full bg-[var(--accent)]/10 text-[var(--accent)] font-medium">
-                        출시
-                      </span>
-                    </div>
-                    <p className="text-sm text-[var(--secondary)] leading-relaxed">
-                      마라톤 일정 · AI 코치 · 러닝 커뮤니티 앱
                     </p>
                   </div>
                 </div>

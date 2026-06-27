@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowLeft,
@@ -11,6 +12,7 @@ import {
   Globe,
   Mail,
   MessageCircle,
+  ArrowRight,
 } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -109,6 +111,32 @@ export default function TelegramBotPage() {
               앱을 켜지 않아도 텔레그램에서 종합 분석, 오늘의 신호, 물타기 분석,
               매크로 요약을 바로 받아보실 수 있습니다.
             </p>
+
+            {/* 퀀트뷰 앱 연계 안내 (= 같은 분석 엔진 / 앱에서 더 풍부하게) */}
+            <Link
+              href="/quantapp"
+              className="group mt-6 flex items-center gap-3 p-4 rounded-xl bg-[var(--card-bg)] border border-[var(--card-border)] hover:border-[var(--accent)] transition-colors max-w-xl"
+            >
+              <div className="shrink-0 w-10 h-10 rounded-lg overflow-hidden border border-[var(--card-border)]">
+                <Image
+                  src="/icons/quantview.png"
+                  alt="퀀트뷰 앱 아이콘"
+                  width={40}
+                  height={40}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="text-sm font-bold">퀀트뷰 앱과 같은 분석 엔진</div>
+                <div className="text-xs text-[var(--secondary)] leading-relaxed">
+                  앱에서는 더 다양한 화면과 기능으로 만나보실 수 있습니다
+                </div>
+              </div>
+              <ArrowRight
+                size={16}
+                className="shrink-0 text-[var(--secondary)] group-hover:text-[var(--accent)] group-hover:translate-x-0.5 transition-all"
+              />
+            </Link>
 
             {/* TODO: 봇 공개 아이디 미확정 — 노출 필요 시 운영자 확인 (= 후보 @byeongha_quant_bot / @QuantBot_bot 두 가지 / 비공개 봇이라 기본 비노출). */}
           </div>
