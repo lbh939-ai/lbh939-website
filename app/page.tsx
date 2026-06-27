@@ -5,11 +5,10 @@ import {
   MessageCircle,
   ArrowRight,
   Sparkles,
-  Send,
-  Languages,
 } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { TelegramBotIcon } from "@/components/TelegramBotIcon";
 
 /**
  * 메인 페이지 = 1인 개발자 lbh939 의 앱 포트폴리오.
@@ -73,7 +72,7 @@ export default function Home() {
                       </span>
                     </div>
                     <p className="text-sm text-[var(--secondary)] leading-relaxed">
-                      AI 종합분석 · 공포탐욕지수 · 실적일정
+                      한국·미국주식 AI 분석·시장지표
                     </p>
                   </div>
                 </div>
@@ -106,7 +105,7 @@ export default function Home() {
                       </span>
                     </div>
                     <p className="text-sm text-[var(--secondary)] leading-relaxed">
-                      마라톤 일정 · AI 코치 · 러닝 커뮤니티 앱
+                      대회 일정 · 훈련 다이어리 · 크루 관리
                     </p>
                   </div>
                 </div>
@@ -123,7 +122,7 @@ export default function Home() {
               >
                 <div className="flex items-start gap-4">
                   <div className="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-[var(--accent)] text-white inline-flex items-center justify-center">
-                    <Send size={24} />
+                    <TelegramBotIcon size={26} />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1">
@@ -149,8 +148,14 @@ export default function Home() {
                 className="group relative overflow-hidden rounded-2xl bg-[var(--card-bg)] border border-[var(--card-border)] p-6 sm:p-8 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-200 hover:-translate-y-0.5"
               >
                 <div className="flex items-start gap-4">
-                  <div className="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-[var(--accent)] text-white inline-flex items-center justify-center">
-                    <MessageCircle size={24} />
+                  <div className="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-[var(--card-border)]">
+                    <Image
+                      src="/icons/kakaobot.png"
+                      alt="카카오톡 봇 아이콘"
+                      width={56}
+                      height={56}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1">
@@ -176,8 +181,14 @@ export default function Home() {
                 className="group relative overflow-hidden rounded-2xl bg-[var(--card-bg)] border border-[var(--card-border)] p-6 sm:p-8 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-200 hover:-translate-y-0.5"
               >
                 <div className="flex items-start gap-4">
-                  <div className="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-[var(--accent)] text-white inline-flex items-center justify-center">
-                    <Languages size={24} />
+                  <div className="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-[var(--card-border)]">
+                    <Image
+                      src="/icons/trumpbot.png"
+                      alt="트럼프봇 아이콘"
+                      width={56}
+                      height={56}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1">

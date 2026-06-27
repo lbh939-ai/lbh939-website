@@ -103,7 +103,7 @@ export default function QuantappPage() {
                   퀀트뷰
                 </h1>
                 <p className="text-sm sm:text-base text-[var(--secondary)]">
-                  미국·한국 주식 AI 분석 도구
+                  한국·미국주식 AI 분석·시장지표
                 </p>
               </div>
             </div>

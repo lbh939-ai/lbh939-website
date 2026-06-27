@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowLeft,
-  Send,
   Brain,
   Bell,
   Droplet,
@@ -16,6 +15,7 @@ import {
 } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { TelegramBotIcon } from "@/components/TelegramBotIcon";
 
 export const metadata: Metadata = {
   title: "텔레그램 봇 — 퀀트뷰의 분석을 텔레그램에서",
@@ -87,7 +87,7 @@ export default function TelegramBotPage() {
 
             <div className="flex items-start gap-5 mb-8">
               <div className="shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-[var(--accent)] text-white inline-flex items-center justify-center">
-                <Send size={32} />
+                <TelegramBotIcon size={34} />
               </div>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 mb-2 flex-wrap">

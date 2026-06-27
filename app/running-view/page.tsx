@@ -118,7 +118,7 @@ export default function RunningViewPage() {
                   </span>
                 </div>
                 <p className="text-sm sm:text-base text-[var(--secondary)]">
-                  러닝과 마라톤을 한 앱에서
+                  대회 일정 · 훈련 다이어리 · 크루 관리
                 </p>
               </div>
             </div>
