@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowLeft,
+  Download,
   Footprints,
   CalendarDays,
   Bot,
@@ -9,8 +10,6 @@ import {
   UsersRound,
   FlaskConical,
   HeartPulse,
-  Mail,
-  MessageCircle,
 } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -18,7 +17,7 @@ import { Footer } from "@/components/Footer";
 export const metadata: Metadata = {
   title: "러닝뷰 — 러닝과 마라톤을 한 앱에서",
   description:
-    "마라톤 일정 조회·신청, AI 러닝 코치, 러닝 커뮤니티, 크루, 러닝랩 계산기까지 한 앱에 담은 러닝 앱. 현재 베타 테스터를 모집하고 있습니다.",
+    "마라톤 일정 조회·신청, AI 러닝 코치, 러닝 커뮤니티, 크루, 러닝랩 계산기까지 한 앱에 담은 러닝 앱. App Store와 Google Play에서 받아보세요.",
 };
 
 // 주요 기능 (= 작업 지시서 검증된 사실 안 실제 구현 기능 기반).
@@ -62,15 +61,39 @@ const FEATURES = [
   },
 ];
 
-// 사용 기술 (= 작업 지시서 검증된 사실 / 이제 모두 실제 사용 중).
+// 사용 기술 (= 작업 지시서 검증된 사실 / 모두 실제 사용 중).
 const TECH_STACK = ["Flutter", "Dart", "Python FastAPI", "SQLite", "Gemini"];
+
+// 스토어 링크 (= 실제 출시 / 깃허브 코드에서 확인한 패키지·ID 기반).
+//   Play 패키지: com.lbh939.runningview (android/app/build.gradle.kts applicationId)
+//   App Store ID: 6784309240 (운영자 확인)
+const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.lbh939.runningview";
+const APP_STORE_URL = "https://apps.apple.com/app/id6784309240";
+
+function DownloadButtons({ size = "sm" }: { size?: "sm" | "lg" }) {
+  const padding = size === "lg" ? "px-7 py-3.5" : "px-6 py-3";
+  const iconSize = size === "lg" ? 20 : 18;
+  const baseClass = `inline-flex items-center gap-2 ${padding} rounded-xl bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white font-semibold text-sm sm:text-base transition-colors`;
+  return (
+    <div className="flex flex-wrap gap-3">
+      <a href={PLAY_STORE_URL} target="_blank" rel="noopener noreferrer" className={baseClass}>
+        <Download size={iconSize} />
+        Play Store에서 받기
+      </a>
+      <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" className={baseClass}>
+        <Download size={iconSize} />
+        App Store에서 받기
+      </a>
+    </div>
+  );
+}
 
 export default function RunningViewPage() {
   return (
     <>
       <Header />
       <main className="flex-1">
-        {/* ── Hero (= 베타 모집 중 / warning 보조색으로 구분) ── */}
+        {/* ── Hero (= 출시 / 강조색으로 통일) ── */}
         <section className="px-4 sm:px-6 lg:px-12 pt-10 sm:pt-16 pb-8 sm:pb-12">
           <div className="max-w-[1200px] mx-auto">
             <Link
@@ -82,7 +105,7 @@ export default function RunningViewPage() {
             </Link>
 
             <div className="flex items-start gap-5 mb-8">
-              <div className="shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-[var(--warning)]/10 text-[var(--warning)] inline-flex items-center justify-center">
+              <div className="shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-[var(--accent)] text-white inline-flex items-center justify-center">
                 <Footprints size={32} />
               </div>
               <div className="flex-1 min-w-0">
@@ -90,8 +113,8 @@ export default function RunningViewPage() {
                   <h1 className="text-2xl sm:text-4xl font-bold tracking-tight">
                     러닝뷰
                   </h1>
-                  <span className="px-2 py-0.5 text-xs rounded-full bg-[var(--warning)]/10 text-[var(--warning)] font-medium">
-                    베타 모집 중
+                  <span className="px-2 py-0.5 text-xs rounded-full bg-[var(--accent)]/10 text-[var(--accent)] font-medium">
+                    출시
                   </span>
                 </div>
                 <p className="text-sm sm:text-base text-[var(--secondary)]">
@@ -100,10 +123,12 @@ export default function RunningViewPage() {
               </div>
             </div>
 
-            <p className="text-base sm:text-lg text-[var(--secondary)] leading-relaxed max-w-3xl">
+            <p className="text-base sm:text-lg text-[var(--secondary)] leading-relaxed max-w-3xl mb-8">
               러닝뷰는 마라톤 일정 조회·신청, AI 러닝 코치, 러닝 커뮤니티, 크루,
               러닝랩 계산기를 한 앱에 담은 러닝 앱입니다.
             </p>
+
+            <DownloadButtons />
           </div>
         </section>
 
@@ -118,8 +143,8 @@ export default function RunningViewPage() {
                 직접 러닝을 즐기는 1인 개발자가 실제로 쓸 만한 러닝 도구를 만들어 보는 프로젝트입니다.
               </p>
               <p className="text-base sm:text-lg text-[var(--secondary)] leading-relaxed">
-                러닝뷰는 현재 베타 테스터를 모집하고 있습니다.
-                함께 써보며 의견을 주실 분을 찾고 있으니, 관심 있으시면 아래로 문의해 주세요.
+                이제 App Store와 Google Play에서 모두 만나보실 수 있습니다.
+                러닝을 즐기시는 분이라면 지금 바로 받아보세요.
               </p>
             </div>
           </div>
@@ -155,7 +180,7 @@ export default function RunningViewPage() {
           </div>
         </section>
 
-        {/* ── 사용 기술 (= 이제 모두 실제 사용 중) ── */}
+        {/* ── 사용 기술 (= 모두 실제 사용 중) ── */}
         <section className="px-4 sm:px-6 lg:px-12 py-12 sm:py-16">
           <div className="max-w-[1200px] mx-auto">
             <h2 className="text-2xl sm:text-3xl font-bold mb-2">사용 기술</h2>
@@ -176,46 +201,16 @@ export default function RunningViewPage() {
           </div>
         </section>
 
-        {/* ── 이용 안내 (= 베타 모집) + 문의 CTA (= 텔레그램 봇 페이지와 동일 형식) ── */}
+        {/* ── 다운로드 CTA (= 퀀트뷰 페이지와 동일 형식) ── */}
         <section className="px-4 sm:px-6 lg:px-12 py-12 sm:py-20 bg-[var(--section-bg)]">
-          <div className="max-w-[1200px] mx-auto">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-2">이용 안내</h2>
-            <p className="text-sm sm:text-base text-[var(--secondary)] mb-10 max-w-2xl">
-              러닝뷰는 현재 베타 테스터를 모집하고 있습니다. 참여를 원하시면 카카오톡 채널로 문의해 주세요.
+          <div className="max-w-[1200px] mx-auto text-center">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4">지금 다운로드</h2>
+            <p className="text-sm sm:text-base text-[var(--secondary)] mb-8 max-w-xl mx-auto">
+              App Store와 Google Play에서 무료로 받아보실 수 있습니다.
             </p>
-
-            {/* 카카오톡 채널 = 메인 (= 큰 채움 카드 / 강조색 배경) */}
-            <a
-              href="https://pf.kakao.com/_CAIxbX"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center gap-4 p-6 rounded-2xl bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all mb-4 max-w-2xl"
-            >
-              <div className="shrink-0 w-12 h-12 rounded-xl bg-white/20 inline-flex items-center justify-center text-white">
-                <MessageCircle size={22} />
-              </div>
-              <div className="flex-1 min-w-0">
-                <div className="text-xs text-white/80 mb-0.5">카카오톡 채널로 문의 (권장)</div>
-                <div className="text-base sm:text-lg font-bold truncate">@quantapp</div>
-              </div>
-              <div className="shrink-0 inline-flex items-center text-white/90 text-sm font-medium group-hover:translate-x-0.5 transition-transform">
-                바로 가기
-              </div>
-            </a>
-
-            {/* 이메일 = 보조 (= 외곽선 카드) */}
-            <a
-              href="mailto:lbh939@gmail.com"
-              className="group flex items-center gap-4 p-5 rounded-xl bg-[var(--card-bg)] border border-[var(--card-border)] hover:border-[var(--accent)] transition-colors max-w-2xl"
-            >
-              <div className="shrink-0 w-11 h-11 rounded-lg bg-[var(--accent)]/10 inline-flex items-center justify-center text-[var(--accent)]">
-                <Mail size={20} />
-              </div>
-              <div className="flex-1 min-w-0">
-                <div className="text-xs text-[var(--secondary)] mb-0.5">이메일로 문의</div>
-                <div className="text-sm font-medium truncate">lbh939@gmail.com</div>
-              </div>
-            </a>
+            <div className="flex justify-center">
+              <DownloadButtons size="lg" />
+            </div>
           </div>
         </section>
       </main>
