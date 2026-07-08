@@ -3,6 +3,8 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
 export const metadata: Metadata = {
+  // OG/트위터 이미지의 상대 URL 을 절대 URL 로 해석하는 기준 (미설정 시 localhost 로 잘못 잡힘).
+  metadataBase: new URL("https://lbh939.com"),
   title: {
     default: "lbh939 — 투자를 더 똑똑하게",
     template: "%s — lbh939",
