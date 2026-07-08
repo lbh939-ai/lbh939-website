@@ -5,6 +5,9 @@
 export type DownloadTarget = {
   ios: string;
   android: string;
+  // landing = 데스크톱/기타 폴백 목적지. 사이트 내부 경로("/quantapp") 또는
+  // 외부 절대 URL("https://runningview.lbh939.com") 모두 허용된다.
+  // (window.location.replace / next redirect() 둘 다 절대 URL 을 정상 처리한다.)
   landing: string;
 };
 
@@ -14,6 +17,12 @@ export const TARGETS: Record<string, DownloadTarget> = {
     ios: "https://apps.apple.com/app/id6775523997",
     android: "https://play.google.com/store/apps/details?id=com.lbh939.quantapp",
     landing: "/quantapp",
+  },
+  runningview: {
+    ios: "https://apps.apple.com/app/id6784309240",
+    android: "https://play.google.com/store/apps/details?id=com.lbh939.runningview",
+    // 러닝뷰는 사이트 내부 경로가 아니라 외부 웹버전 도메인으로 보낸다.
+    landing: "https://runningview.lbh939.com",
   },
 };
 
