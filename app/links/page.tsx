@@ -34,11 +34,11 @@ export default function LinksPage() {
           <Wordmark size={104} shape={LOGO.shape} color={LOGO.color} />
           <h1 className="mt-5 text-[26px] font-bold tracking-[-0.03em]">임병하</h1>
           <p className="mt-1 text-[15px] text-[var(--secondary)]">앱 만들고 달리는 1인 개발자</p>
-          <ul className="mt-4 flex flex-wrap justify-center gap-1.5">
+          <ul className="mt-4 grid w-full max-w-[340px] grid-cols-2 gap-1.5">
             {RECORDS.map((r) => (
               <li
                 key={r.label}
-                className="rounded-full bg-[var(--card-bg)] px-3 py-1.5 text-[13px] font-semibold tabular-nums"
+                className="rounded-full bg-[var(--card-bg)] px-3 py-1.5 text-center text-[13px] font-semibold tabular-nums"
               >
                 {r.label} {r.value}
               </li>
@@ -47,7 +47,7 @@ export default function LinksPage() {
         </header>
 
         {/* ── 러닝뷰 (= 가장 크게) ── */}
-        <section className="mt-8 rounded-[26px] bg-[var(--inverse-bg)] p-5 text-[var(--inverse-fg)]">
+        <section className="mt-8 rounded-[26px] bg-[var(--inverse-bg)] p-5 text-[var(--inverse-fg)] dark:ring-1 dark:ring-white/12">
           <div className="flex items-center gap-4">
             <ProjectIcon name={runningview.name} icon={runningview.icon} size={64} />
             <div className="min-w-0">
@@ -58,13 +58,13 @@ export default function LinksPage() {
           </div>
           <a
             href={runningview.download}
-            className="mt-5 flex min-h-12 items-center justify-center rounded-full bg-[var(--accent)] text-[17px] font-semibold text-white transition active:scale-[0.98]"
+            className="mt-5 flex min-h-12 items-center justify-center rounded-full bg-[var(--accent-fill)] text-[17px] font-semibold text-white transition active:scale-[0.98]"
           >
             무료로 받기
           </a>
           <Link
             href={runningview.href}
-            className="mt-3 flex items-center justify-center text-[14px] text-[var(--accent-on-dark)]"
+            className="mt-1 flex min-h-11 items-center justify-center text-[14px] text-[var(--accent-on-dark)]"
           >
             어떤 앱인지 보기
             <ChevronRight size={15} />
@@ -141,7 +141,7 @@ export default function LinksPage() {
         </ul>
 
         <footer className="mt-10 text-center text-[13px] text-[var(--secondary)]">
-          <Link href="/" className="hover:text-[var(--foreground)]">
+          <Link href="/" className="inline-flex min-h-11 items-center px-3 hover:text-[var(--foreground)]">
             lbh939.com 전체 보기
           </Link>
         </footer>

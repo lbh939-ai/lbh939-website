@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* dark: 표시를 사이트의 밝게/어둡게 버튼(.dark)에 연결 */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* ─────────────────────────────────────────────────────────────
    디자인 시스템 SSOT (= 애플 스타일 라이트/다크 모드)
    값 출처: apple.com 실측 정리(VoltAgent/awesome-design-md apple/DESIGN.md)
@@ -21,6 +24,11 @@
   --inverse-fg: #f5f5f7;
   --inverse-secondary: #a1a1a6;
   --accent-on-dark: #2997ff;
+  /* 흰 글씨가 올라가는 버튼 전용 파랑 (= 두 테마 모두 흰 글씨 대비 4.5:1 이상). */
+  --accent-fill: #0071e3;
+  --accent-fill-hover: #0077ed;
+  /* 머리글 = 애플처럼 항상 짙은 반투명 (= 흰 구역·검은 구역 어디서든 자연스럽게). */
+  --nav-bg: rgb(22 22 23 / 0.8);
   --shadow-card: none;
   --shadow-card-hover: 0 8px 28px rgba(0, 0, 0, 0.08);
 }
@@ -37,10 +45,13 @@
   --accent-hover: #47a3ff;
   /* 다크 모드 = 어두운 배경에서도 또렷한 amber 톤. */
   --warning: #F0A33E;
-  --inverse-bg: #1d1d1f;
+  --inverse-bg: #000000;
   --inverse-fg: #f5f5f7;
   --inverse-secondary: #a1a1a6;
   --accent-on-dark: #2997ff;
+  --accent-fill: #0071e3;
+  --accent-fill-hover: #0077ed;
+  --nav-bg: rgb(22 22 23 / 0.8);
   --shadow-card: none;
   --shadow-card-hover: 0 8px 28px rgba(0, 0, 0, 0.5);
 }
@@ -88,19 +99,51 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ─────────────────────────────────────────────────────────────
-   움직임 (= 첫 화면 등장 1번 + 스크롤로 떠오르는 카드 1종류만)
-   - 움직임 줄이기 설정을 켠 사용자에게는 모두 꺼짐
-   - 스크롤 연동을 지원하지 않는 브라우저(파이어폭스 등)는 그냥 보임
+   움직임 = 스크롤 이야기 (애플 제품 페이지 방식, 전부 CSS)
+   1 첫 화면: 멈춘 채 작아지며 물러나고 다음 구역이 커튼처럼 덮음
+   2 선언문: 둥근 회색 시트가 첫 화면을 덮고, 고정된 문장이 한 단어씩 또렷해짐
+   3 앱 아이콘: 크게 날아와 제자리에 앉음 / 카드·목록은 떠오름
+   4 러닝 코스: 선이 그려지며 km 가 올라가고 기록이 차례로 나타남
+   5 머리글 진행 막대: 페이지를 얼마나 내렸는지
+   - 움직임 줄이기 설정 사용자, 스크롤 연동을 지원하지 않는 브라우저(파이어폭스 등)는
+     긴 고정 구역 없이 완성된 모습이 그대로 보인다.
    ───────────────────────────────────────────────────────────── */
-@keyframes rise {
-  from { opacity: 0; transform: translateY(18px); }
+@property --km {
+  syntax: "<integer>";
+  inherits: false;
+  initial-value: 42;
 }
-@keyframes reveal {
-  from { opacity: 0; transform: translateY(32px) scale(0.97); }
+.km-count { counter-reset: km var(--km); }
+.km-count::before { content: counter(km); }
+
+/* 선언문 뒤 빛 = 파랑·보라·분홍·주황이 겹친 부드러운 원들 (흐림 필터 없이 그라데이션만). */
+.manifesto-glow {
+  background:
+    radial-gradient(closest-side at 34% 42%, rgb(41 151 255 / 0.34), transparent),
+    radial-gradient(closest-side at 66% 40%, rgb(162 89 255 / 0.28), transparent),
+    radial-gradient(closest-side at 58% 68%, rgb(255 110 150 / 0.24), transparent),
+    radial-gradient(closest-side at 38% 66%, rgb(255 176 87 / 0.22), transparent);
 }
+
+/* 코스 선 = pathLength 1 기준. 기본은 다 그려진 상태. */
+.course-line { stroke-dasharray: 1 2; stroke-dashoffset: 0; }
+.scroll-progress { display: none; }
+
+@keyframes rise { from { opacity: 0; transform: translateY(18px); } }
+@keyframes reveal { from { opacity: 0; transform: translateY(32px) scale(0.97); } }
+@keyframes hero-away { to { opacity: 0; transform: scale(0.8); } }
+@keyframes glow-in { from { opacity: 0; transform: scale(0.55) rotate(-40deg); } to { transform: scale(1.05) rotate(25deg); } }
+@keyframes word-on { from { opacity: 0.22; filter: blur(3px); } }
+@keyframes icon-land { from { transform: translateY(-45%) scale(1.9) rotate(-8deg); } }
+@keyframes draw { from { stroke-dashoffset: 1.02; } to { stroke-dashoffset: 0; } }
+@keyframes pop { from { opacity: 0; transform: scale(0.4); } }
+@keyframes fade-up { from { opacity: 0; transform: translateY(20px); } }
+@keyframes km-up { from { --km: 0; } to { --km: 42; } }
+@keyframes grow-x { from { transform: scaleX(0); } }
+
 @media (prefers-reduced-motion: no-preference) {
   .hero-in > * {
-    animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
   .hero-in > :nth-child(2) { animation-delay: 0.1s; }
   .hero-in > :nth-child(3) { animation-delay: 0.2s; }
@@ -111,6 +154,73 @@ h1, h2, h3, h4, h5, h6 {
       animation: reveal linear both;
       animation-timeline: view();
       animation-range: entry 0% entry 70%;
+    }
+
+    /* 1 첫 화면 (= 머리글 아래에 멈춰 있고, 뒤따르는 구역이 위를 덮는다) */
+    .hero-stage { position: sticky; top: 3.25rem; }
+    .hero-stage > .hero-away {
+      animation: hero-away linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 85vh;
+    }
+
+    /* 고정 무대 공통: 바깥이 길고 안쪽이 화면에 붙어 있는 동안 진행된다 */
+    .scrolly { height: var(--scrolly-h, 300svh); }
+    .scrolly > .stage {
+      position: sticky;
+      top: 3.25rem;
+      height: calc(100svh - 3.25rem);
+    }
+
+    /* 2 선언문 */
+    .manifesto { view-timeline-name: --manifesto; }
+    .manifesto-glow {
+      animation: glow-in linear both;
+      animation-timeline: --manifesto;
+      animation-range: contain 0% contain 100%;
+    }
+    .word {
+      animation: word-on linear both;
+      animation-timeline: --manifesto;
+      animation-range: contain var(--a) contain var(--b);
+    }
+
+    /* 3 앱 아이콘 (= 카드가 화면에 들어오는 동안 제자리로) */
+    .land-zone { view-timeline-name: --land; }
+    .icon-land {
+      animation: icon-land linear both;
+      animation-timeline: --land;
+      animation-range: entry 30% cover 50%;
+    }
+
+    /* 4 러닝 코스 */
+    .run { view-timeline-name: --run; }
+    .course-line,
+    .km-count {
+      animation-timeline: --run;
+      animation-range: contain 8% contain 78%;
+      animation-fill-mode: both;
+      animation-timing-function: linear;
+    }
+    .course-line { animation-name: draw; }
+    .km-count { animation-name: km-up; }
+    .course-mark {
+      animation: pop cubic-bezier(0.16, 1, 0.3, 1) both;
+      animation-timeline: --run;
+      animation-range: contain var(--a) contain var(--b);
+    }
+    .course-after {
+      animation: fade-up linear both;
+      animation-timeline: --run;
+      animation-range: contain 82% contain 90%;
+    }
+
+    /* 5 진행 막대 */
+    .scroll-progress {
+      display: block;
+      transform-origin: left;
+      animation: grow-x linear both;
+      animation-timeline: scroll(root);
     }
   }
 }

@@ -187,7 +187,7 @@ export default function TrumpBotPage() {
               href="https://pf.kakao.com/_CAIxbX"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-4 p-6 rounded-2xl bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all mb-4 max-w-2xl"
+              className="group flex items-center gap-4 p-6 rounded-2xl bg-[var(--accent-fill)] hover:bg-[var(--accent-fill-hover)] text-white shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all mb-4 max-w-2xl"
             >
               <div className="shrink-0 w-12 h-12 rounded-xl bg-white/20 inline-flex items-center justify-center text-white">
                 <MessageCircle size={22} />

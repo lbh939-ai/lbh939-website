@@ -57,7 +57,7 @@ const APP_STORE_URL = "https://apps.apple.com/app/id6775523997";
 function DownloadButtons({ size = "sm" }: { size?: "sm" | "lg" }) {
   const padding = size === "lg" ? "px-7 py-3.5" : "px-6 py-3";
   const iconSize = size === "lg" ? 20 : 18;
-  const baseClass = `inline-flex items-center gap-2 ${padding} rounded-xl bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white font-semibold text-sm sm:text-base transition-colors`;
+  const baseClass = `inline-flex items-center gap-2 ${padding} rounded-xl bg-[var(--accent-fill)] hover:bg-[var(--accent-fill-hover)] text-white font-semibold text-sm sm:text-base transition-colors`;
   return (
     <div className="flex flex-wrap gap-3">
       <a href={PLAY_STORE_URL} target="_blank" rel="noopener noreferrer" className={baseClass}>

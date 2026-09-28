@@ -25,7 +25,7 @@ export function ThemeToggle() {
 
   if (!mounted) {
     // 자리만 차지 (= layout shift 회피)
-    return <div className="w-10 h-10" aria-hidden />;
+    return <div className="size-11" aria-hidden />;
   }
 
   const isDark = (theme === "system" ? resolvedTheme : theme) === "dark";
@@ -35,7 +35,7 @@ export function ThemeToggle() {
       type="button"
       aria-label={isDark ? "라이트 모드로 전환" : "다크 모드로 전환"}
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="w-10 h-10 inline-flex items-center justify-center rounded-full text-[var(--foreground)]/80 hover:bg-[var(--section-bg)] transition-colors"
+      className="size-11 inline-flex items-center justify-center rounded-full text-[var(--inverse-fg)]/80 hover:bg-white/10 transition-colors"
     >
       {isDark ? <Sun size={17} /> : <Moon size={17} />}
     </button>

@@ -51,14 +51,14 @@ export function DownloadFallback({
       <div className="flex flex-wrap items-center justify-center gap-3">
         <a
           href={target.ios}
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white font-semibold text-sm sm:text-base transition-colors"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[var(--accent-fill)] hover:bg-[var(--accent-fill-hover)] text-white font-semibold text-sm sm:text-base transition-colors"
         >
           <Download size={18} />
           App Store에서 받기
         </a>
         <a
           href={target.android}
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white font-semibold text-sm sm:text-base transition-colors"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[var(--accent-fill)] hover:bg-[var(--accent-fill-hover)] text-white font-semibold text-sm sm:text-base transition-colors"
         >
           <Download size={18} />
           Play Store에서 받기

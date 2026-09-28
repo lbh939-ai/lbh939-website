@@ -82,7 +82,7 @@ export const RECORDS = [
   { value: "3:09:46", label: "풀코스", note: "2025 대구마라톤" },
   { value: "1:33:08", label: "하프", note: "2024 RYW" },
   { value: "39:12", label: "10K", note: "2024 손기정" },
-  { value: "100K", label: "트랜스제주 완주", note: "2023" },
+  { value: "100K 완주", label: "트랜스제주", note: "2023" },
 ];
 
 export const SOCIALS = [

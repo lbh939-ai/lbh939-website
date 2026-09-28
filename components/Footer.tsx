@@ -11,14 +11,14 @@ export function Footer() {
     <footer className="mt-auto border-t border-[var(--card-border)]/50 bg-[var(--section-bg)]">
       <div className="max-w-[1024px] mx-auto px-4 sm:px-6 py-10">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-[var(--secondary)]">
-            <Link href="/privacy" className="hover:text-[var(--foreground)] transition-colors">
+          <div className="flex flex-wrap gap-x-6 text-sm text-[var(--secondary)]">
+            <Link href="/privacy" className="inline-flex min-h-11 items-center hover:text-[var(--foreground)] transition-colors">
               개인정보처리방침
             </Link>
-            <Link href="/terms" className="hover:text-[var(--foreground)] transition-colors">
+            <Link href="/terms" className="inline-flex min-h-11 items-center hover:text-[var(--foreground)] transition-colors">
               이용약관
             </Link>
-            <Link href="/account-delete" className="hover:text-[var(--foreground)] transition-colors">
+            <Link href="/account-delete" className="inline-flex min-h-11 items-center hover:text-[var(--foreground)] transition-colors">
               계정 삭제
             </Link>
           </div>
