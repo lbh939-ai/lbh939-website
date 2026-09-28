@@ -66,11 +66,6 @@ export const LAB: { name: string; desc: string; status: string }[] = [
     status: "업데이트 준비 중",
   },
   {
-    name: "릴스 자동 편집",
-    desc: "폰으로 찍은 영상을 넣으면 컷 편집과 자막까지 끝난 릴스를 만들어 줍니다. 제 인스타 릴스도 이걸로 만듭니다.",
-    status: "직접 쓰는 중",
-  },
-  {
     name: "PokeView",
     desc: "포켓몬 GO 화면을 읽어 슈퍼리그용으로 키울지, 어떤 기술을 쓸지 알려주는 안드로이드 앱입니다.",
     status: "테스트 중",
