@@ -1,38 +1,48 @@
 @import "tailwindcss";
 
 /* ─────────────────────────────────────────────────────────────
-   디자인 시스템 SSOT (= 토스 스타일 라이트/다크 모드)
+   디자인 시스템 SSOT (= 애플 스타일 라이트/다크 모드)
+   값 출처: apple.com 실측 정리(VoltAgent/awesome-design-md apple/DESIGN.md)
    ───────────────────────────────────────────────────────────── */
 :root {
   --background: #ffffff;
-  --foreground: #191F28;
-  --secondary: #6B7684;
-  --tertiary: #8B95A1;
+  --foreground: #1d1d1f;
+  --secondary: #6e6e73;
+  --tertiary: #86868b;
   --card-bg: #ffffff;
-  --card-border: #E5E8EB;
-  --section-bg: #F9FAFB;
-  --accent: #1B64DA;
-  --accent-hover: #1551B0;
+  --card-border: #d2d2d7;
+  --section-bg: #f5f5f7;
+  --accent: #0071e3;
+  --accent-hover: #0077ed;
   /* 보조 상태색 (= "베타 모집 중" 등 강조색과 구분되는 warning 계열). */
   --warning: #C2680A;
-  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.06);
-  --shadow-card-hover: 0 4px 12px rgba(0, 0, 0, 0.08);
+  /* 반전 구역 (= 흰 페이지 사이에 들어가는 검은 구역 / 로고 배경). */
+  --inverse-bg: #000000;
+  --inverse-fg: #f5f5f7;
+  --inverse-secondary: #a1a1a6;
+  --accent-on-dark: #2997ff;
+  --shadow-card: none;
+  --shadow-card-hover: 0 8px 28px rgba(0, 0, 0, 0.08);
 }
 
 .dark {
-  --background: #17171C;
-  --foreground: #F9FAFB;
-  --secondary: #B0B8C1;
-  --tertiary: #6B7684;
-  --card-bg: #1F1F25;
-  --card-border: #2E2E36;
-  --section-bg: #1A1A20;
-  --accent: #4A8AE8;
-  --accent-hover: #6BA0EF;
+  --background: #000000;
+  --foreground: #f5f5f7;
+  --secondary: #a1a1a6;
+  --tertiary: #6e6e73;
+  --card-bg: #1d1d1f;
+  --card-border: #424245;
+  --section-bg: #161617;
+  --accent: #2997ff;
+  --accent-hover: #47a3ff;
   /* 다크 모드 = 어두운 배경에서도 또렷한 amber 톤. */
   --warning: #F0A33E;
+  --inverse-bg: #1d1d1f;
+  --inverse-fg: #f5f5f7;
+  --inverse-secondary: #a1a1a6;
+  --accent-on-dark: #2997ff;
   --shadow-card: none;
-  --shadow-card-hover: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-card-hover: 0 8px 28px rgba(0, 0, 0, 0.5);
 }
 
 @theme inline {
@@ -46,6 +56,10 @@
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
   --color-warning: var(--warning);
+  --color-inverse-bg: var(--inverse-bg);
+  --color-inverse-fg: var(--inverse-fg);
+  --color-inverse-secondary: var(--inverse-secondary);
+  --color-accent-on-dark: var(--accent-on-dark);
 }
 
 html {
@@ -58,15 +72,47 @@ body {
   font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
   letter-spacing: -0.02em;
   line-height: 1.5;
+  /* 한글은 낱말 단위로 줄바꿈 (= "있습니 / 다" 처럼 끊기지 않게). 긴 주소는 넘치지 않게 끊는다. */
+  word-break: keep-all;
+  overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-/* 토스 스타일 + Pretendard 결합 = 한글 자간 약간 좁게 */
+/* 애플 스타일 + Pretendard = 제목은 자간을 좁히고 줄 간격을 촘촘하게 */
 h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.04em;
   line-height: 1.3;
+  text-wrap: balance;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   움직임 (= 첫 화면 등장 1번 + 스크롤로 떠오르는 카드 1종류만)
+   - 움직임 줄이기 설정을 켠 사용자에게는 모두 꺼짐
+   - 스크롤 연동을 지원하지 않는 브라우저(파이어폭스 등)는 그냥 보임
+   ───────────────────────────────────────────────────────────── */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(18px); }
+}
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(32px) scale(0.97); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-in > * {
+    animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+  .hero-in > :nth-child(2) { animation-delay: 0.1s; }
+  .hero-in > :nth-child(3) { animation-delay: 0.2s; }
+  .hero-in > :nth-child(4) { animation-delay: 0.3s; }
+
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 70%;
+    }
+  }
 }
 
 /* ─────────────────────────────────────────────────────────────

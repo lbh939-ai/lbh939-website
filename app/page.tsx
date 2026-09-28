@@ -1,307 +1,186 @@
-import Image from "next/image";
 import Link from "next/link";
-import {
-  Mail,
-  MessageCircle,
-  ArrowRight,
-  Sparkles,
-} from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { TelegramBotIcon } from "@/components/TelegramBotIcon";
+import { ProjectIcon } from "@/components/ProjectIcon";
+import { APPS, BOTS, LAB, RECORDS, EMAIL, KAKAO_CHANNEL, SOCIALS, type Project } from "./projects";
 
 /**
- * 메인 페이지 = 1인 개발자 lbh939 의 앱 포트폴리오.
- * - 히어로: 투자 중심 → 1인 개발자 중심 (= 작업 지시서 3번)
- * - Apps 섹션: 카드 4장 (= 퀀트뷰 / 텔레그램 봇 / 카카오톡 봇 / 러닝뷰) (= 작업 지시서 4번)
- * - About 섹션: Apps와 Contact 사이 (= 작업 지시서 4-A 신규 / 2차 정정)
- * - 상태 배지 색 가이드 (= 작업 지시서 4번 명시):
- *   · 출시 / 운영 중 = var(--accent) 강조색
- *   · 개발 중 / 제작 중 = var(--secondary) 차분한 보조색
+ * 메인 페이지 = 1인 개발자 lbh939 의 앱 포트폴리오 (= 애플 스타일).
+ * 구역 배경은 흰색 → 회색 → 흰색 → 검정 → 회색 순서로 번갈아 바뀐다.
+ * 움직임은 첫 화면 등장(hero-in) 1번과 스크롤로 떠오르는 카드(reveal) 1종류만 쓴다.
  */
 export default function Home() {
   return (
     <>
       <Header />
       <main className="flex-1">
-        {/* ── Hero 섹션 ── */}
-        <section className="px-4 sm:px-6 lg:px-12 pt-16 sm:pt-24 lg:pt-32 pb-12 sm:pb-16">
-          <div className="max-w-[1200px] mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-6 rounded-full border border-[var(--card-border)] bg-[var(--card-bg)] text-xs sm:text-sm text-[var(--secondary)]">
-              <Sparkles size={14} className="text-[var(--accent)]" />
-              <span>1인 개발자</span>
-            </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-5">
-              제가 실제로 쓰는 도구를 만들고, 모두의 일상에 편리함을 더합니다.
+        {/* ── 첫 화면 ── */}
+        <section className="px-5 sm:px-6 pt-20 sm:pt-32 pb-20 sm:pb-28 text-center">
+          <div className="hero-in max-w-[980px] mx-auto">
+            <p className="text-[17px] sm:text-[21px] font-semibold text-[var(--secondary)] mb-3">1인 개발자 lbh939</p>
+            <h1 className="text-[48px] sm:text-[72px] lg:text-[88px] font-bold leading-[1.04] tracking-[-0.05em]">
+              직접 쓰려고
+              <br />
+              만듭니다.
             </h1>
-            <p className="text-base sm:text-lg text-[var(--secondary)] max-w-2xl mx-auto">
-              투자, 일상, 러닝까지 — 진짜로 쓸 만한 도구를 만듭니다.
+            <p className="mt-6 text-[17px] sm:text-[21px] leading-[1.5] text-[var(--secondary)] max-w-[620px] mx-auto">
+              제가 실제로 쓰는 도구를 만들고, 모두의 일상에 편리함을 더합니다.
             </p>
-          </div>
-        </section>
-
-        {/* ── Apps 섹션 ── */}
-        <section id="apps" className="px-4 sm:px-6 lg:px-12 py-12 sm:py-20">
-          <div className="max-w-[1200px] mx-auto">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-2">Apps</h2>
-            <p className="text-sm sm:text-base text-[var(--secondary)] mb-10">
-              현재 만든 것과 준비 중인 프로젝트입니다.
-            </p>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {/* 1. 퀀트뷰 카드 (= 출시 / 실제 앱 아이콘) */}
-              <Link
-                href="/quantapp"
-                className="group relative overflow-hidden rounded-2xl bg-[var(--card-bg)] border border-[var(--card-border)] p-6 sm:p-8 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-200 hover:-translate-y-0.5"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-[var(--card-border)]">
-                    <Image
-                      src="/icons/quantview.png"
-                      alt="퀀트뷰 앱 아이콘"
-                      width={56}
-                      height={56}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 mb-1">
-                      <h3 className="text-lg sm:text-xl font-bold">퀀트뷰</h3>
-                      <span className="px-2 py-0.5 text-[10px] sm:text-xs rounded-full bg-[var(--accent)]/10 text-[var(--accent)] font-medium">
-                        출시
-                      </span>
-                    </div>
-                    <p className="text-sm text-[var(--secondary)] leading-relaxed">
-                      한국·미국주식 AI 분석·시장지표
-                    </p>
-                  </div>
-                </div>
-                <div className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-[var(--accent)] group-hover:gap-2 transition-all">
-                  자세히 보기
-                  <ArrowRight size={16} />
-                </div>
+            <div className="mt-10 flex flex-wrap justify-center items-center gap-x-7 gap-y-4">
+              <Link href="#apps" className={PILL_PRIMARY}>
+                앱 둘러보기
               </Link>
-
-              {/* 2. 러닝뷰 카드 (= 출시 / 실제 앱 아이콘) */}
-              <Link
-                href="/running-view"
-                className="group relative overflow-hidden rounded-2xl bg-[var(--card-bg)] border border-[var(--card-border)] p-6 sm:p-8 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-200 hover:-translate-y-0.5"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-[var(--card-border)]">
-                    <Image
-                      src="/icons/runningview.png"
-                      alt="러닝뷰 앱 아이콘"
-                      width={56}
-                      height={56}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 mb-1">
-                      <h3 className="text-lg sm:text-xl font-bold">러닝뷰</h3>
-                      <span className="px-2 py-0.5 text-[10px] sm:text-xs rounded-full bg-[var(--accent)]/10 text-[var(--accent)] font-medium">
-                        출시
-                      </span>
-                    </div>
-                    <p className="text-sm text-[var(--secondary)] leading-relaxed">
-                      대회 일정 · 훈련 다이어리 · 크루 관리
-                    </p>
-                  </div>
-                </div>
-                <div className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-[var(--accent)] group-hover:gap-2 transition-all">
-                  자세히 보기
-                  <ArrowRight size={16} />
-                </div>
-              </Link>
-
-              {/* 3. 텔레그램 봇 카드 (= 운영 중) */}
-              <Link
-                href="/telegram-bot"
-                className="group relative overflow-hidden rounded-2xl bg-[var(--card-bg)] border border-[var(--card-border)] p-6 sm:p-8 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-200 hover:-translate-y-0.5"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-[var(--accent)] text-white inline-flex items-center justify-center">
-                    <TelegramBotIcon size={26} />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 mb-1">
-                      <h3 className="text-lg sm:text-xl font-bold">텔레그램 봇</h3>
-                      <span className="px-2 py-0.5 text-[10px] sm:text-xs rounded-full bg-[var(--accent)]/10 text-[var(--accent)] font-medium">
-                        운영 중
-                      </span>
-                    </div>
-                    <p className="text-sm text-[var(--secondary)] leading-relaxed">
-                      퀀트뷰의 분석을 텔레그램에서 받는 봇
-                    </p>
-                  </div>
-                </div>
-                <div className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-[var(--accent)] group-hover:gap-2 transition-all">
-                  자세히 보기
-                  <ArrowRight size={16} />
-                </div>
-              </Link>
-
-              {/* 4. 카카오톡 봇 카드 (= 운영 중) */}
-              <Link
-                href="/kakao-bot"
-                className="group relative overflow-hidden rounded-2xl bg-[var(--card-bg)] border border-[var(--card-border)] p-6 sm:p-8 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-200 hover:-translate-y-0.5"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-[var(--card-border)]">
-                    <Image
-                      src="/icons/kakaobot.png"
-                      alt="카카오톡 봇 아이콘"
-                      width={56}
-                      height={56}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 mb-1">
-                      <h3 className="text-lg sm:text-xl font-bold">카카오톡 봇</h3>
-                      <span className="px-2 py-0.5 text-[10px] sm:text-xs rounded-full bg-[var(--accent)]/10 text-[var(--accent)] font-medium">
-                        운영 중
-                      </span>
-                    </div>
-                    <p className="text-sm text-[var(--secondary)] leading-relaxed">
-                      단톡방에서 시세 · 환율 · 코인 · 유튜브 요약을 답해주는 봇
-                    </p>
-                  </div>
-                </div>
-                <div className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-[var(--accent)] group-hover:gap-2 transition-all">
-                  자세히 보기
-                  <ArrowRight size={16} />
-                </div>
-              </Link>
-
-              {/* 5. 트럼프봇 카드 (= 운영 중) */}
-              <Link
-                href="/trump-bot"
-                className="group relative overflow-hidden rounded-2xl bg-[var(--card-bg)] border border-[var(--card-border)] p-6 sm:p-8 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-200 hover:-translate-y-0.5"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-[var(--card-border)]">
-                    <Image
-                      src="/icons/trumpbot.png"
-                      alt="트럼프봇 아이콘"
-                      width={56}
-                      height={56}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 mb-1">
-                      <h3 className="text-lg sm:text-xl font-bold">트럼프봇</h3>
-                      <span className="px-2 py-0.5 text-[10px] sm:text-xs rounded-full bg-[var(--accent)]/10 text-[var(--accent)] font-medium">
-                        운영 중
-                      </span>
-                    </div>
-                    <p className="text-sm text-[var(--secondary)] leading-relaxed">
-                      트럼프의 새 글을 한국어로 번역해 보내주는 봇
-                    </p>
-                  </div>
-                </div>
-                <div className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-[var(--accent)] group-hover:gap-2 transition-all">
-                  자세히 보기
-                  <ArrowRight size={16} />
-                </div>
+              <Link href="#contact" className="inline-flex items-center text-[17px] text-[var(--accent)] hover:underline underline-offset-4">
+                연락하기
+                <ChevronRight size={18} />
               </Link>
             </div>
           </div>
         </section>
 
-        {/* ── About 섹션 (= 작업 지시서 4-A / 2차 정정 신규) ── */}
-        {/*
-          핵심 메시지 = "제가 실제로 쓰고 싶은 도구를 직접 만듭니다!" (= 작업 지시서 명시 그대로)
-          보조 설명 = 2~4문장 / 담백하면서 친근한 토스 스타일 / 존댓말 (= 절대 규칙 6번)
-          GitHub 카드 = 코드에는 포함하되 JSX 주석으로 비노출 (= 저장소 비공개라 404 위험 차단)
-            → 추후 저장소 공개 전환 시 아래 TODO 주석 안 카드 한 덩이만 주석 해제하면 즉시 노출 가능.
-        */}
-        <section id="about" className="px-4 sm:px-6 lg:px-12 py-12 sm:py-20">
-          <div className="max-w-[1200px] mx-auto">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-2">About</h2>
-            <p className="text-sm sm:text-base text-[var(--secondary)] mb-10">
-              제가 어떤 마음으로 앱을 만드는지 짧게 소개합니다.
-            </p>
-
-            <div className="max-w-3xl">
-              <p className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight mb-6 leading-tight">
-                제가 실제로 쓰고 싶은 도구를 직접 만듭니다!
-              </p>
-              <p className="text-base sm:text-lg text-[var(--secondary)] leading-relaxed mb-4">
-                기획부터 디자인, 개발, 배포까지 혼자 합니다.
-                잘 팔리는 앱보다 제가 매일 쓰고 싶은 앱을 먼저 만듭니다.
-              </p>
-              <p className="text-base sm:text-lg text-[var(--secondary)] leading-relaxed">
-                투자, 일상, 러닝까지 — 필요한 도구가 없으면 직접 만들어 보는 1인 개발자입니다.
-              </p>
-
-              {/*
-                TODO: 저장소를 공개로 전환하면 아래 GitHub 카드 한 덩이의 주석만 해제하여 노출.
-                현재 lbh939-ai/lbh939-website 외 본인 저장소 대부분이 비공개라 외부 클릭 시 404 가 발생할 위험이 있어 의도적으로 화면 비노출.
-                <div className="mt-8">
-                  <a
-                    href="https://github.com/lbh939-ai"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group inline-flex items-center gap-4 p-5 rounded-xl bg-[var(--card-bg)] border border-[var(--card-border)] hover:border-[var(--accent)] transition-colors"
-                  >
-                    <div className="shrink-0 w-11 h-11 rounded-lg bg-[var(--accent)]/10 inline-flex items-center justify-center text-[var(--accent)]">
-                      <Github size={20} />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="text-xs text-[var(--secondary)] mb-0.5">GitHub</div>
-                      <div className="text-sm font-medium truncate">github.com/lbh939-ai</div>
-                    </div>
-                  </a>
-                </div>
-              */}
+        {/* ── 출시한 앱 + 운영 중인 봇 ── */}
+        <section id="apps" className="scroll-mt-13 bg-[var(--section-bg)] px-4 sm:px-6 py-20 sm:py-28">
+          <div className="max-w-[1024px] mx-auto">
+            <SectionTitle title="출시한 앱" sub="App Store와 Google Play에서 받으실 수 있습니다." />
+            <div className="grid md:grid-cols-2 gap-5">
+              {APPS.map((app, i) => (
+                <AppTile key={app.name} app={app} dark={i === 1} />
+              ))}
+            </div>
+            <div className="grid sm:grid-cols-3 gap-5 mt-5">
+              {BOTS.map((bot) => (
+                <Link
+                  key={bot.name}
+                  href={bot.href}
+                  className="reveal group flex flex-col rounded-[22px] bg-[var(--card-bg)] p-6 sm:p-7 transition-shadow hover:shadow-[var(--shadow-card-hover)]"
+                >
+                  <ProjectIcon name={bot.name} icon={bot.icon} size={48} />
+                  <p className="mt-5 text-[12px] font-semibold text-[var(--accent)]">{bot.status}</p>
+                  <h3 className="mt-1 text-[21px] font-bold">{bot.name}</h3>
+                  <p className="mt-1.5 text-[15px] leading-[1.5] text-[var(--secondary)] flex-1">{bot.desc}</p>
+                  <span className="mt-4 inline-flex items-center text-[15px] text-[var(--accent)] group-hover:underline underline-offset-4">
+                    자세히 보기
+                    <ChevronRight size={16} />
+                  </span>
+                </Link>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* ── 연락처 섹션 ── */}
-        <section id="contact" className="px-4 sm:px-6 lg:px-12 py-12 sm:py-20 bg-[var(--section-bg)]">
-          <div className="max-w-[1200px] mx-auto">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-2">Contact</h2>
-            <p className="text-sm sm:text-base text-[var(--secondary)] mb-10">
-              궁금한 점이나 제안이 있으시면 언제든 연락 주세요.
-            </p>
+        {/* ── 지금 만들고 있는 것 ── */}
+        <section id="lab" className="scroll-mt-13 px-4 sm:px-6 py-20 sm:py-28">
+          <div className="max-w-[1024px] mx-auto">
+            <SectionTitle title="지금 만들고 있어요" sub="완성되면 이곳에 가장 먼저 올리겠습니다." />
+            <ul className="max-w-[800px] mx-auto border-y border-[var(--card-border)] divide-y divide-[var(--card-border)]">
+              {LAB.map((item) => (
+                <li key={item.name} className="py-6 sm:py-7 grid sm:grid-cols-[180px_1fr_auto] gap-x-6 gap-y-1.5 items-baseline">
+                  <h3 className="text-[19px] font-bold">{item.name}</h3>
+                  <p className="text-[15px] sm:text-[17px] leading-[1.55] text-[var(--secondary)]">{item.desc}</p>
+                  <span className="text-[13px] font-semibold text-[var(--accent)] whitespace-nowrap">{item.status}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <a
-                href="mailto:lbh939@gmail.com"
-                className="group flex items-center gap-4 p-5 rounded-xl bg-[var(--card-bg)] border border-[var(--card-border)] hover:border-[var(--accent)] transition-colors"
-              >
-                <div className="shrink-0 w-11 h-11 rounded-lg bg-[var(--accent)]/10 inline-flex items-center justify-center text-[var(--accent)]">
-                  <Mail size={20} />
+        {/* ── 소개 (= 검은 반전 구역) ── */}
+        <section id="about" className="scroll-mt-13 bg-[var(--inverse-bg)] text-[var(--inverse-fg)] px-4 sm:px-6 py-24 sm:py-32">
+          <div className="max-w-[1024px] mx-auto text-center">
+            <h2 className="text-[44px] sm:text-[64px] lg:text-[72px] font-bold leading-[1.05] tracking-[-0.05em]">
+              앱 만들고,
+              <br />
+              달립니다.
+            </h2>
+            <div className="max-w-[640px] mx-auto mt-8 space-y-4 text-[17px] sm:text-[21px] leading-[1.55] text-[var(--inverse-secondary)]">
+              <p>
+                기획부터 디자인, 개발, 배포까지 혼자 합니다. 잘 팔리는 앱보다 제가 매일 쓰고 싶은 앱을 먼저 만듭니다.
+              </p>
+              <p>
+                달리면서 필요했던 것은 러닝뷰로, 투자하면서 필요했던 것은 퀀트뷰로 만들었습니다. 러닝 크루 런치광이에서 운영진으로 함께 달리고 있습니다.
+              </p>
+            </div>
+            <div className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-px overflow-hidden rounded-[22px] bg-white/12">
+              {RECORDS.map((r) => (
+                <div key={r.label} className="reveal bg-[var(--inverse-bg)] px-4 py-8 sm:py-10">
+                  <p className="text-[36px] sm:text-[48px] font-bold tabular-nums tracking-[-0.03em] leading-none">{r.value}</p>
+                  <p className="mt-3 text-[15px] font-semibold">{r.label}</p>
+                  <p className="mt-1 text-[13px] text-[var(--inverse-secondary)]">{r.note}</p>
                 </div>
-                <div className="flex-1 min-w-0">
-                  <div className="text-xs text-[var(--secondary)] mb-0.5">이메일</div>
-                  <div className="text-sm font-medium truncate">lbh939@gmail.com</div>
-                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── 연락 ── */}
+        <section id="contact" className="scroll-mt-13 bg-[var(--section-bg)] px-4 sm:px-6 py-20 sm:py-28 text-center">
+          <div className="max-w-[1024px] mx-auto">
+            <SectionTitle title="편하게 연락 주세요." sub="협업, 제안, 앱 문의 모두 환영합니다." />
+            <div className="flex flex-wrap justify-center gap-3">
+              <a href={`mailto:${EMAIL}`} className={PILL_PRIMARY}>
+                이메일 보내기
               </a>
-
-              <a
-                href="https://pf.kakao.com/_CAIxbX"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-4 p-5 rounded-xl bg-[var(--card-bg)] border border-[var(--card-border)] hover:border-[var(--accent)] transition-colors"
-              >
-                <div className="shrink-0 w-11 h-11 rounded-lg bg-[var(--accent)]/10 inline-flex items-center justify-center text-[var(--accent)]">
-                  <MessageCircle size={20} />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="text-xs text-[var(--secondary)] mb-0.5">카카오톡 채널</div>
-                  <div className="text-sm font-medium truncate">@quantapp</div>
-                </div>
+              <a href={KAKAO_CHANNEL} target="_blank" rel="noopener noreferrer" className={PILL_SECONDARY}>
+                카카오톡 채널
+              </a>
+              <a href={SOCIALS[0].href} target="_blank" rel="noopener noreferrer" className={PILL_SECONDARY}>
+                인스타그램 DM
               </a>
             </div>
+            <p className="mt-6 text-[14px] text-[var(--secondary)]">{EMAIL}</p>
           </div>
         </section>
       </main>
       <Footer />
     </>
+  );
+}
+
+const PILL_PRIMARY =
+  "inline-flex items-center justify-center min-h-11 rounded-full bg-[var(--accent)] px-6 text-[17px] font-medium text-white transition hover:bg-[var(--accent-hover)] active:scale-95";
+const PILL_SECONDARY =
+  "inline-flex items-center justify-center min-h-11 rounded-full border border-[var(--accent)] px-6 text-[17px] font-medium text-[var(--accent)] transition hover:bg-[var(--accent)] hover:text-white active:scale-95";
+
+function SectionTitle({ title, sub }: { title: string; sub: string }) {
+  return (
+    <div className="text-center mb-12 sm:mb-16">
+      <h2 className="text-[34px] sm:text-[48px] font-bold leading-[1.1] tracking-[-0.045em]">{title}</h2>
+      <p className="mt-3 text-[17px] sm:text-[21px] text-[var(--secondary)]">{sub}</p>
+    </div>
+  );
+}
+
+/** 큰 앱 타일. dark = 검은 반전 타일 (= 흰 타일과 번갈아 배치). */
+function AppTile({ app, dark }: { app: Project; dark: boolean }) {
+  return (
+    <div
+      className={`reveal flex flex-col items-center text-center rounded-[28px] px-8 pt-12 pb-10 sm:pt-14 ${
+        dark ? "bg-[var(--inverse-bg)] text-[var(--inverse-fg)]" : "bg-[var(--card-bg)]"
+      }`}
+    >
+      <ProjectIcon name={app.name} icon={app.icon} size={104} />
+      <p className={`mt-7 text-[13px] font-semibold ${dark ? "text-[var(--accent-on-dark)]" : "text-[var(--accent)]"}`}>
+        {app.status}
+      </p>
+      <h3 className="mt-1 text-[32px] sm:text-[40px] font-bold tracking-[-0.04em] leading-[1.1]">{app.name}</h3>
+      <p className={`mt-2 text-[17px] ${dark ? "text-[var(--inverse-secondary)]" : "text-[var(--secondary)]"}`}>{app.desc}</p>
+      <div className="mt-8 flex flex-wrap justify-center items-center gap-x-6 gap-y-3">
+        {app.download && (
+          <a href={app.download} className={PILL_PRIMARY}>
+            무료로 받기
+          </a>
+        )}
+        <Link
+          href={app.href}
+          className={`inline-flex items-center text-[17px] hover:underline underline-offset-4 ${
+            dark ? "text-[var(--accent-on-dark)]" : "text-[var(--accent)]"
+          }`}
+        >
+          자세히 보기
+          <ChevronRight size={18} />
+        </Link>
+      </div>
+    </div>
   );
 }

@@ -6,14 +6,14 @@ export const metadata: Metadata = {
   // OG/트위터 이미지의 상대 URL 을 절대 URL 로 해석하는 기준 (미설정 시 localhost 로 잘못 잡힘).
   metadataBase: new URL("https://lbh939.com"),
   title: {
-    default: "lbh939 — 투자를 더 똑똑하게",
+    default: "lbh939 — 직접 쓰려고 만드는 1인 개발자",
     template: "%s — lbh939",
   },
-  description: "1인 개발자 lbh939의 앱 포트폴리오. 미국 주식 AI 분석 도구 '퀀트뷰'를 비롯한 모바일 앱을 소개합니다.",
-  keywords: ["lbh939", "퀀트뷰", "주식 분석", "AI 분석", "미국 주식", "포트폴리오"],
+  description: "1인 개발자 lbh939의 앱 포트폴리오. 주식 AI 분석 앱 '퀀트뷰', 러닝 앱 '러닝뷰'와 봇들을 소개합니다.",
+  keywords: ["lbh939", "퀀트뷰", "러닝뷰", "1인 개발자", "주식 분석", "러닝 앱", "포트폴리오"],
   authors: [{ name: "lbh939" }],
   openGraph: {
-    title: "lbh939 — 투자를 더 똑똑하게",
+    title: "lbh939 — 직접 쓰려고 만드는 1인 개발자",
     description: "1인 개발자 lbh939의 앱 포트폴리오",
     type: "website",
     locale: "ko_KR",

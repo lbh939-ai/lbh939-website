@@ -35,9 +35,9 @@ export function ThemeToggle() {
       type="button"
       aria-label={isDark ? "라이트 모드로 전환" : "다크 모드로 전환"}
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="w-10 h-10 inline-flex items-center justify-center rounded-full border border-[var(--card-border)] bg-[var(--card-bg)] hover:bg-[var(--section-bg)] transition-colors"
+      className="w-10 h-10 inline-flex items-center justify-center rounded-full text-[var(--foreground)]/80 hover:bg-[var(--section-bg)] transition-colors"
     >
-      {isDark ? <Sun size={18} /> : <Moon size={18} />}
+      {isDark ? <Sun size={17} /> : <Moon size={17} />}
     </button>
   );
 }

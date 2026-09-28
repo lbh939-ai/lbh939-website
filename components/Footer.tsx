@@ -9,7 +9,7 @@ export function Footer() {
   const year = new Date().getFullYear();
   return (
     <footer className="mt-auto border-t border-[var(--card-border)]/50 bg-[var(--section-bg)]">
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-12 py-10">
+      <div className="max-w-[1024px] mx-auto px-4 sm:px-6 py-10">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-[var(--secondary)]">
             <Link href="/privacy" className="hover:text-[var(--foreground)] transition-colors">
