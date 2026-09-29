@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          ".claude/preview/index.html"
+        ],
+        "createdAt": "2026-09-29T15:16:22.638Z",
+        "reason": "Agent: local-only phone preview tool; .screen is a device screen, its status bar and iframe fill it edge to edge by design"
+      }
+    ]
+  }
+}

@@ -7,6 +7,7 @@ import { Footer } from "@/components/Footer";
 import { ProjectIcon } from "@/components/ProjectIcon";
 import { BuildRoute } from "@/components/BuildRoute";
 import { Phone } from "@/components/Phone";
+import { LoadEarly } from "@/components/LoadEarly";
 import { APPS, LAB, CONTACTS, EMAIL, SOCIALS, type Project } from "./projects";
 
 // 선언문: 스크롤하면 한 단어씩 또렷해진다 (app/globals.css "2 선언문").
@@ -16,6 +17,30 @@ const MANIFESTO = [
   ["투자하면서 필요했던 건 퀀트뷰로,", "달리면서 필요했던 건 러닝뷰로 만들었습니다."],
   ["쓸 만한 게 없으면, 직접 만듭니다."],
 ];
+
+// 소개 사진 벽 = 사용자가 고른 인스타 사진 18장, 날짜순 (public/photos/run, 출처는 파일 안과 docs/애플스타일_개편_작업.md).
+// 벽은 세로로 3장씩 채워지므로 왼쪽 칸이 2023년, 오른쪽 칸이 최근이다. MAIN_PHOTO = 처음에 화면을 가득 채우는 사진.
+const PHOTOS: { src: string; alt: string }[] = [
+  { src: "/photos/run/2307-seorak.jpg", alt: "설악산 공룡능선에서 등산 스틱을 들고 웃는 모습" },
+  { src: "/photos/run/2309-long-run.jpg", alt: "비 오는 날 크루 장거리 훈련을 마치고 두 팔을 벌린 모습" },
+  { src: "/photos/run/2310-hallasan.jpg", alt: "한라산 백록담 표지석 옆에 선 모습" },
+  { src: "/photos/run/2310-transjeju-100k.jpg", alt: "트랜스제주 100km 결승선에서 두 팔을 펼친 모습" },
+  { src: "/photos/run/2311-jtbc-marathon.jpg", alt: "비 오는 JTBC 서울마라톤 코스를 달리는 모습" },
+  { src: "/photos/run/2311-relay.jpg", alt: "팀 릴레이 대회에서 달리는 모습" },
+  { src: "/photos/run/2405-seoul-half.jpg", alt: "서울하프마라톤 10km를 마치고 웃는 모습" },
+  { src: "/photos/run/2407-untan-skyrace.jpg", alt: "운탄고도 스카이레이스 숲길에서 두 손을 흔드는 모습" },
+  { src: "/photos/run/2408-hanam-night.jpg", alt: "하남 썸머나이트런 결승선을 지나 웃는 모습" },
+  { src: "/photos/run/2409-chuncheon-skyrace.jpg", alt: "춘천 스카이레이스 포토월 앞에서 메달을 든 모습" },
+  { src: "/photos/run/2410-transjeju-50k.jpg", alt: "트랜스제주 50km 결승선에서 두 손을 땅에 짚은 모습" },
+  { src: "/photos/run/2411-son-kee-chung-10k.jpg", alt: "손기정평화마라톤 10km를 달리는 모습" },
+  { src: "/photos/run/2502-daegu-marathon.jpg", alt: "대구마라톤을 마치고 손을 들어 보이는 모습" },
+  { src: "/photos/run/2503-seoul-marathon.jpg", alt: "동아서울마라톤을 달리는 모습" },
+  { src: "/photos/run/2506-profile.jpg", alt: "메달을 목에 걸고 팔짱을 낀 러닝 프로필 사진" },
+  { src: "/photos/run/2506-test-drive.jpg", alt: "하늘색 차 옆에 러닝화를 들고 선 모습" },
+  { src: "/photos/run/2511-medals.jpg", alt: "벽 가득 걸린 대회 메달들" },
+  { src: "/photos/run/2601-run-to-live.jpg", alt: "러닝 예능 촬영장에서 손을 흔드는 모습" },
+];
+const MAIN_PHOTO = 4;
 
 /**
  * 메인 페이지 = 1인 개발자 lbh939 의 앱 포트폴리오 (= 애플 제품 페이지식 스크롤 이야기).
@@ -123,33 +148,22 @@ export default function Home() {
             </div>
           </section>
 
-          {/* ── 6 소개 (= 실제 사진 + 짧은 글, 기록은 쓰지 않는다) ── */}
-          <section id="about" className="scroll-mt-13 bg-[var(--section-bg)] px-4 py-20 sm:px-6 sm:py-28">
-            <div className="mx-auto grid max-w-[1024px] items-center gap-10 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:gap-16">
-              <figure className="photo-reveal overflow-hidden rounded-[28px]">
-                <Image
-                  src="/photos/night-track.jpg"
-                  alt="밤 트랙에서 조명을 받으며 달리는 러닝 크루원들"
-                  width={1066}
-                  height={1600}
-                  sizes="(min-width: 768px) 440px, 100vw"
-                  className="h-auto w-full"
-                />
-              </figure>
-              <div>
-                <h2 className="text-[40px] font-bold leading-[1.08] tracking-[-0.04em] sm:text-[56px]">
-                  앱 만들고,
-                  <br />
-                  달립니다.
-                </h2>
-                <p className="mt-6 text-[17px] leading-[1.65] text-[var(--secondary)] sm:text-[19px]">
-                  기획부터 디자인, 개발, 배포까지 혼자 합니다. 잘{"\u00a0"}팔리는 앱보다 제가 매일 쓰고 싶은 앱을 먼저 만듭니다.
-                </p>
-                <p className="mt-4 text-[17px] leading-[1.65] text-[var(--secondary)] sm:text-[19px]">
-                  저녁에는 러닝 크루 런치광이에서 운영진으로 함께 달립니다. 러닝뷰도 그렇게 달리다가 필요해진 것들을 모아 만든 앱입니다.
-                </p>
-              </div>
+          {/* ── 6 소개 (= 짧은 글 + 사진 벽) ── */}
+          <section id="about" className="scroll-mt-13 bg-[var(--section-bg)]">
+            <div className="mx-auto max-w-[680px] px-4 pt-20 text-center sm:px-6 sm:pt-28">
+              <h2 className="text-[40px] font-bold leading-[1.08] tracking-[-0.04em] sm:text-[56px]">
+                앱 만들고,
+                <br />
+                달립니다.
+              </h2>
+              <p className="mt-6 text-[17px] leading-[1.65] text-[var(--secondary)] sm:text-[19px]">
+                기획부터 디자인, 개발, 배포까지 혼자 합니다. 잘{"\u00a0"}팔리는 앱보다 제가 매일 쓰고 싶은 앱을 먼저 만듭니다.
+              </p>
+              <p className="mt-4 text-[17px] leading-[1.65] text-[var(--secondary)] sm:text-[19px]">
+                저녁에는 러닝 크루 런치광이에서 운영진으로 함께 달립니다. 러닝뷰도 그렇게 달리다가 필요해진 것들을 모아 만든 앱입니다.
+              </p>
             </div>
+            <PhotoRun />
           </section>
 
           {/* ── 7 연락 (= 목적별로 바로 보내기) ── */}
@@ -271,5 +285,44 @@ function AppTile({ app, dark }: { app: Project; dark: boolean }) {
         <Phone peek src={app.shot} alt={`${app.name} 실제 화면`} width={720} height={1500} sizes="270px" className="mt-10 w-[68%] max-w-[270px]" />
       )}
     </article>
+  );
+}
+
+/**
+ * 소개 사진 벽 (app/globals.css "5 소개 사진 벽"): MAIN_PHOTO 한 장이 화면을 가득 채웠다가, 스크롤하면 뒤로 물러나며
+ * 3줄짜리 사진 벽이 되고, 벽이 화면보다 넓으면 옆으로 흘러가 마지막 칸(최근)까지 보여 준 뒤 인스타 링크가 나온다.
+ */
+function PhotoRun() {
+  const origin = { "--mc": Math.floor(MAIN_PHOTO / 3), "--mr": MAIN_PHOTO % 3 } as CSSProperties;
+  return (
+    <div className="photo-run scrolly" style={{ "--cols": Math.ceil(PHOTOS.length / 3) } as CSSProperties}>
+      <LoadEarly target=".photo-run" />
+      <div className="stage flex flex-col justify-center gap-4 overflow-hidden px-4 py-16 sm:px-6">
+        <div className="photo-pan">
+          <div className="photo-wall" style={origin}>
+            {PHOTOS.map((p, i) => (
+              <figure key={p.src} className="relative overflow-hidden rounded-[10px] sm:rounded-[14px]">
+                <Image
+                  src={p.src}
+                  alt={p.alt}
+                  fill
+                  sizes={i === MAIN_PHOTO ? "(min-width: 1024px) 680px, 165vw" : "(min-width: 1024px) 240px, 42vw"}
+                  className="object-cover"
+                />
+              </figure>
+            ))}
+          </div>
+        </div>
+        <a
+          href={SOCIALS[0].href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="photo-more inline-flex min-h-11 items-center self-center text-[17px] text-[var(--accent)] underline-offset-4 hover:underline"
+        >
+          인스타그램에서 더 보기
+          <ChevronRight size={18} />
+        </a>
+      </div>
+    </div>
   );
 }

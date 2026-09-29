@@ -130,7 +130,7 @@ h1, h2, h3, h4, h5, h6 {
    3 앱 아이콘: 크게 날아와 제자리에 앉음 / 목록은 떠오름
    4 만든 앱 코스: 고정된 어두운 무대에서 선이 그려지고, 선이 닿을 때마다
      만든 것이 하나씩 켜지며 "만든 것" 숫자가 0 → 5
-   5 소개 사진: 화면에 들어오며 둥근 창이 열리듯 펼쳐짐
+   5 소개 사진 벽: 한 장이 화면을 채웠다가 물러나며 3줄 사진 벽이 되고, 옆으로 흘러 최근 사진까지
    6 머리글 진행 막대: 페이지를 얼마나 내렸는지
    - 움직임 줄이기 설정 사용자, 스크롤 연동을 지원하지 않는 브라우저(파이어폭스 등)는
      긴 고정 구역 없이 완성된 모습이 그대로 보인다.
@@ -152,6 +152,34 @@ h1, h2, h3, h4, h5, h6 {
 
 /* 코스 선 = pathLength 1 기준. 기본은 다 그려진 상태. */
 .route-line { stroke-dasharray: 1 2; stroke-dashoffset: 0; }
+/* 소개 사진 벽 = 3줄 × --cols 칸(4:5, 칸 수는 사진 수 ÷ 3). 사진 높이 = (고정 무대 높이 - 위아래 여백 8rem - 링크 자리 3.75rem - 줄 사이 2칸) ÷ 3.
+   기본(움직임 없음)은 화면보다 넓으면 옆으로 넘겨 보는 목록. */
+.photo-run {
+  --gap: 6px;
+  --ch: min(300px, calc((100svh - 3.25rem - 11.75rem - 2 * var(--gap)) / 3));
+  --cw: calc(var(--ch) * 0.8);
+  --wall: calc(var(--cols) * var(--cw) + (var(--cols) - 1) * var(--gap));
+}
+@media (min-width: 640px) { .photo-run { --gap: 10px; } }
+.photo-pan {
+  container-type: inline-size;
+  display: flex;
+  justify-content: safe center;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.photo-wall {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(3, var(--ch));
+  grid-auto-columns: var(--cw);
+  gap: var(--gap);
+  /* 처음에 화면을 채우는 사진(--mc 칸, --mr 줄)의 가운데 = 확대 중심 */
+  --mx: calc(var(--mc) * (var(--cw) + var(--gap)) + var(--cw) / 2);
+  --my: calc(var(--mr) * (var(--ch) + var(--gap)) + var(--ch) / 2);
+}
+.photo-wall > figure { scroll-snap-align: start; }
 .scroll-progress { display: none; }
 
 @keyframes rise { from { opacity: 0; transform: translateY(18px); } }
@@ -165,7 +193,13 @@ h1, h2, h3, h4, h5, h6 {
 @keyframes pop { from { opacity: 0; transform: translateY(10px) scale(0.92); } }
 @keyframes fade-up { from { opacity: 0; transform: translateY(20px); } }
 @keyframes built-up { from { --built: 0; } to { --built: 5; } }
-@keyframes photo-open { from { clip-path: inset(9% 7% round 44px); transform: scale(1.06); } }
+/* 사진 벽: 첫 사진이 무대 한가운데로 와서 4배 커진 상태 → 제자리. 흐르기: 벽의 오른쪽 끝이 화면 오른쪽에 닿을 때까지. */
+@keyframes wall-zoom {
+  from {
+    transform: translate(calc(50cqw - max(0px, (100cqw - var(--wall)) / 2) - var(--mx)), calc(1.875rem + (1 - var(--mr)) * (var(--ch) + var(--gap)))) scale(4);
+  }
+}
+@keyframes wall-pan { to { translate: min(0px, calc(100% - var(--wall))) 0; } }
 @keyframes grow-x { from { transform: scaleX(0); } }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -242,11 +276,31 @@ h1, h2, h3, h4, h5, h6 {
       animation-range: contain 82% contain 90%;
     }
 
-    /* 5 소개 사진 */
-    .photo-reveal {
-      animation: photo-open linear both;
-      animation-timeline: view();
-      animation-range: entry 0% cover 45%;
+    /* 5 소개 사진 벽 (= 한 장이 화면을 채웠다가 물러나며 벽이 되고, 옆으로 흘러 최근 사진까지, 끝에 인스타 링크) */
+    .photo-run { --scrolly-h: 300svh; view-timeline-name: --photos; }
+    .photo-pan {
+      overflow: visible;
+      scroll-snap-type: none;
+      animation: wall-pan linear both;
+      animation-timeline: --photos;
+      animation-range: contain 40% contain 88%;
+    }
+    .photo-wall {
+      transform-origin: var(--mx) var(--my);
+      animation: wall-zoom cubic-bezier(0.33, 1, 0.68, 1) both;
+      animation-timeline: --photos;
+      animation-range: contain 0% contain 36%;
+    }
+    .photo-more {
+      animation: fade-up linear both;
+      animation-timeline: --photos;
+      animation-range: contain 86% contain 96%;
+    }
+    /* 넓은 화면은 벽이 한 화면에 다 들어와 흐르지 않으므로 무대를 짧게. */
+    @media (min-width: 1024px) {
+      .photo-run { --scrolly-h: 220svh; }
+      .photo-wall { animation-range: contain 0% contain 60%; }
+      .photo-more { animation-range: contain 60% contain 75%; }
     }
 
     /* 6 진행 막대 */
