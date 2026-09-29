@@ -15,7 +15,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "트럼프봇 — 트럼프의 새 글을 한국어로, 실시간으로",
+  title: "트럼프봇 | 트럼프의 새 글을 한국어로, 실시간으로",
   description:
     "트럼프의 트루스소셜 새 글을 실시간으로 감지해 한국어로 번역, 텔레그램으로 보내주는 봇. 사진이 포함된 글도 함께 번역해 전달하는 초대 기반 비공개 봇.",
 };

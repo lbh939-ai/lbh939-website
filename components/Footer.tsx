@@ -22,7 +22,7 @@ export function Footer() {
               계정 삭제
             </Link>
           </div>
-          <p className="text-xs text-[var(--tertiary)]">
+          <p className="text-xs text-[var(--secondary)]">
             © {year} lbh939. All rights reserved.
           </p>
         </div>

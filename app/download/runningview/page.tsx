@@ -2,7 +2,7 @@ import { TARGETS } from "../targets";
 import { buildDownloadMetadata } from "../pageMeta";
 import { DownloadFallback } from "../DownloadFallback";
 
-const TITLE = "러닝뷰 — 대회 일정·훈련 다이어리·크루 관리";
+const TITLE = "러닝뷰 | 대회 일정·훈련 다이어리·크루 관리";
 const DESCRIPTION =
   "전국 마라톤 대회 일정부터 훈련 다이어리, 대회 기록·뱃지, 러닝 크루 관리까지. 러너를 위한 올인원 마라톤 앱입니다.";
 

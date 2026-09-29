@@ -6,7 +6,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "퀀트뷰 — 미국·한국 주식 AI 분석 도구",
+  title: "퀀트뷰 | 미국·한국 주식 AI 분석 도구",
   description: "AI 종합 분석, 물타기 분석, 오늘의 신호, 승률 확률, 포트폴리오 관리까지. 미국·한국 주식 투자자를 위한 AI 분석 앱.",
 };
 

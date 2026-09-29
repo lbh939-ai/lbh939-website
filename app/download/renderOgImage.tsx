@@ -8,18 +8,19 @@ export const OG_CONTENT_TYPE = "image/png";
 
 // 색상 = app/globals.css 라이트 모드 디자인 토큰의 실제 값과 일치.
 // (ImageResponse/Satori 는 런타임 CSS 변수에 접근할 수 없어 토큰 값을 그대로 사용한다.)
-const BACKGROUND = "#ffffff"; // --background
-const FOREGROUND = "#191F28"; // --foreground
-const SECONDARY = "#6B7684"; // --secondary
-const BORDER = "#E5E8EB"; // --card-border
-const DEFAULT_ACCENT = "#1B64DA"; // --accent (앱 브랜드색 미지정 시 사이트 강조색으로 폴백)
+const BACKGROUND = "#fcfcfd"; // --background
+const FOREGROUND = "#16181d"; // --foreground
+const SECONDARY = "#5f6470"; // --secondary
+const BORDER = "#d8dbe2"; // --card-border
+const DEFAULT_ACCENT = "#1858d8"; // --accent (앱 브랜드색 미지정 시 사이트 강조색으로 폴백)
 
 /**
  * 다운로드 라우트 공통 1200×630 OG 이미지 생성기.
  * 각 앱은 앱 이름·부제·강조색(브랜드색)과 함께 아이콘 "데이터"를 넘긴다.
  * (아이콘 파일 읽기는 각 opengraph-image.tsx 에서 리터럴 경로로 수행 →
  *  Next 파일 트레이서가 정확히 해당 파일만 번들에 포함하도록 하기 위함.)
- * Pretendard 한글 폰트는 항상 동일하므로 여기서 리터럴 경로로 읽어 임베드한다.
+ * 원티드 산스 한글 글꼴(사이트 본문 글꼴)은 항상 동일하므로 여기서 리터럴 경로로 읽어 임베드한다.
+ * (-og 파일 = 이 이미지 도구가 못 읽는 고급 조판 표(GSUB·GPOS)만 뺀 사본, 글자 모양은 원본과 같다.)
  */
 export async function renderDownloadOgImage({
   iconData,
@@ -33,8 +34,8 @@ export async function renderDownloadOgImage({
   accent?: string;
 }) {
   const [fontBold, fontRegular] = await Promise.all([
-    readFile(join(process.cwd(), "public/fonts/Pretendard-Bold.otf")),
-    readFile(join(process.cwd(), "public/fonts/Pretendard-Regular.otf")),
+    readFile(join(process.cwd(), "public/fonts/WantedSans-Bold-og.otf")),
+    readFile(join(process.cwd(), "public/fonts/WantedSans-Medium-og.otf")),
   ]);
   const iconSrc = `data:image/png;base64,${iconData.toString("base64")}`;
 
@@ -50,7 +51,7 @@ export async function renderDownloadOgImage({
           gap: 76,
           padding: "0 120px",
           background: BACKGROUND,
-          fontFamily: "Pretendard",
+          fontFamily: "Wanted Sans",
         }}
       >
         {/* next/og(Satori)는 next/image 를 지원하지 않아 순수 <img> 가 필수. */}
@@ -81,7 +82,7 @@ export async function renderDownloadOgImage({
           <div
             style={{
               fontSize: 46,
-              fontWeight: 400,
+              fontWeight: 500,
               color: SECONDARY,
               marginTop: 20,
             }}
@@ -103,8 +104,8 @@ export async function renderDownloadOgImage({
     {
       ...OG_SIZE,
       fonts: [
-        { name: "Pretendard", data: fontBold, weight: 700, style: "normal" },
-        { name: "Pretendard", data: fontRegular, weight: 400, style: "normal" },
+        { name: "Wanted Sans", data: fontBold, weight: 700, style: "normal" },
+        { name: "Wanted Sans", data: fontRegular, weight: 500, style: "normal" },
       ],
     },
   );

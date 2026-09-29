@@ -16,7 +16,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "카카오톡 봇 — 단톡방에서 바로 답해주는 도우미",
+  title: "카카오톡 봇 | 단톡방에서 바로 답해주는 도우미",
   description:
     "카카오톡 단톡방에서 명령어로 시세 · 환율 · 코인 · 유튜브 요약을 답해주는 봇. 초대받은 분만 이용 가능한 비공개 봇.",
 };

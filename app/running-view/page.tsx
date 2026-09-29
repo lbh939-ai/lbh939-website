@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowLeft,
@@ -15,7 +16,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "러닝뷰 — 러닝과 마라톤을 한 앱에서",
+  title: "러닝뷰 | 러닝과 마라톤을 한 앱에서",
   description:
     "마라톤 일정 조회·신청, AI 러닝 코치, 러닝 커뮤니티, 크루, 러닝랩 계산기까지 한 앱에 담은 러닝 앱. App Store와 Google Play에서 받아보세요.",
 };
@@ -105,8 +106,15 @@ export default function RunningViewPage() {
             </Link>
 
             <div className="flex items-start gap-5 mb-8">
-              <div className="shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-[var(--accent)] text-white inline-flex items-center justify-center">
-                <Footprints size={32} />
+              <div className="shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border border-[var(--card-border)]">
+                <Image
+                  src="/icons/runningview.png"
+                  alt="러닝뷰 앱 아이콘"
+                  width={80}
+                  height={80}
+                  priority
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 mb-2 flex-wrap">

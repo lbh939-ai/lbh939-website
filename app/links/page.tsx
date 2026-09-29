@@ -4,13 +4,13 @@ import type { ReactNode } from "react";
 import { ChevronRight } from "lucide-react";
 import { Wordmark } from "@/components/Wordmark";
 import { ProjectIcon } from "@/components/ProjectIcon";
-import { APPS, BOTS, LAB, RECORDS, SOCIALS, EMAIL, KAKAO_CHANNEL, LOGO } from "../projects";
+import { APPS, BOTS, LAB, SOCIALS, CONTACTS, LOGO } from "../projects";
 
 export const metadata: Metadata = {
-  title: { absolute: "bbing_he — 앱 만들고 달리는 1인 개발자" },
+  title: { absolute: "bbing_he | 앱 만들고 달리는 1인 개발자" },
   description: "퀀트뷰·러닝뷰를 만든 1인 개발자 bbing_he 의 앱, 봇, 지금 만들고 있는 것, 연락처를 한곳에 모았습니다.",
   openGraph: {
-    title: "bbing_he — 앱 만들고 달리는 1인 개발자",
+    title: "bbing_he | 앱 만들고 달리는 1인 개발자",
     description: "앱, 봇, 지금 만들고 있는 것, 연락처를 한곳에 모았습니다.",
     type: "profile",
     locale: "ko_KR",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 /**
  * 인스타그램 프로필 링크용 페이지 (= lbh939.com/links).
  * 인스타 앱 안 브라우저에서 휴대폰으로 열리는 것을 전제로 한 줄 세로 배치.
- * 인스타 팔로워가 러너 중심이라 러닝뷰를 맨 위에 크게 둔다.
+ * 인스타 팔로워가 러너 중심이라 러닝뷰를 맨 위에 크게 둔다. 러닝 기록은 넣지 않는다(PRODUCT.md).
  */
 export default function LinksPage() {
   const [quantview, runningview] = APPS;
@@ -34,24 +34,13 @@ export default function LinksPage() {
           <Wordmark size={104} shape={LOGO.shape} color={LOGO.color} />
           <h1 className="mt-5 text-[26px] font-bold tracking-[-0.03em]">임병하</h1>
           <p className="mt-1 text-[15px] text-[var(--secondary)]">앱 만들고 달리는 1인 개발자</p>
-          <ul className="mt-4 grid w-full max-w-[340px] grid-cols-2 gap-1.5">
-            {RECORDS.map((r) => (
-              <li
-                key={r.label}
-                className="rounded-full bg-[var(--card-bg)] px-3 py-1.5 text-center text-[13px] font-semibold tabular-nums"
-              >
-                {r.label} {r.value}
-              </li>
-            ))}
-          </ul>
         </header>
 
         {/* ── 러닝뷰 (= 가장 크게) ── */}
         <section className="mt-8 rounded-[26px] bg-[var(--inverse-bg)] p-5 text-[var(--inverse-fg)] dark:ring-1 dark:ring-white/12">
           <div className="flex items-center gap-4">
-            <ProjectIcon name={runningview.name} icon={runningview.icon} size={64} />
+            <ProjectIcon name={runningview.name} icon={runningview.icon} size={64} priority />
             <div className="min-w-0">
-              <p className="text-[12px] font-semibold text-[var(--accent-on-dark)]">{runningview.status}</p>
               <h2 className="text-[22px] font-bold leading-tight">{runningview.name}</h2>
               <p className="text-[14px] text-[var(--inverse-secondary)]">{runningview.desc}</p>
             </div>
@@ -79,7 +68,7 @@ export default function LinksPage() {
           <ProjectIcon name={quantview.name} icon={quantview.icon} size={56} />
           <div className="min-w-0 flex-1">
             <h2 className="text-[18px] font-bold">{quantview.name}</h2>
-            <p className="text-[14px] text-[var(--secondary)] truncate">{quantview.desc}</p>
+            <p className="text-[14px] leading-snug text-[var(--secondary)]">{quantview.desc}</p>
           </div>
           <span className="rounded-full bg-[var(--section-bg)] px-4 py-1.5 text-[15px] font-bold text-[var(--accent)]">
             받기
@@ -92,7 +81,7 @@ export default function LinksPage() {
               <ProjectIcon name={bot.name} icon={bot.icon} size={40} />
               <div className="min-w-0 flex-1">
                 <p className="text-[16px] font-semibold">{bot.name}</p>
-                <p className="text-[13px] text-[var(--secondary)] truncate">{bot.desc}</p>
+                <p className="text-[13px] leading-snug text-[var(--secondary)]">{bot.desc}</p>
               </div>
             </Row>
           ))}
@@ -111,18 +100,14 @@ export default function LinksPage() {
         </Group>
 
         <Group title="연락">
-          <Row href={`mailto:${EMAIL}?subject=${encodeURIComponent("[협업 문의]")}`}>
-            <div className="min-w-0 flex-1">
-              <p className="text-[16px] font-semibold">협업 · 제안 문의</p>
-              <p className="text-[13px] text-[var(--secondary)]">{EMAIL}</p>
-            </div>
-          </Row>
-          <Row href={KAKAO_CHANNEL}>
-            <div className="min-w-0 flex-1">
-              <p className="text-[16px] font-semibold">앱 문의</p>
-              <p className="text-[13px] text-[var(--secondary)]">카카오톡 채널 @quantapp</p>
-            </div>
-          </Row>
+          {CONTACTS.map((c) => (
+            <Row key={c.label} href={c.href}>
+              <div className="min-w-0 flex-1">
+                <p className="text-[16px] font-semibold">{c.label}</p>
+                <p className="text-[13px] text-[var(--secondary)]">{c.note}</p>
+              </div>
+            </Row>
+          ))}
         </Group>
 
         {/* ── 다른 채널 ── */}

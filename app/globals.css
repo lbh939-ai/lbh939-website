@@ -4,56 +4,62 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 /* ─────────────────────────────────────────────────────────────
-   디자인 시스템 SSOT (= 애플 스타일 라이트/다크 모드)
-   값 출처: apple.com 실측 정리(VoltAgent/awesome-design-md apple/DESIGN.md)
+   디자인 시스템 SSOT — 기준 문서는 DESIGN.md (색·글꼴을 바꾸면 거기도 같이)
+   - 주조색 하나: 코발트 #1858D8 (러닝뷰 앱 아이콘에서 뽑은 파랑)
+   - 검정·회색은 코발트가 아주 살짝 섞인 색 (순수 검정·순수 흰색은 쓰지 않음)
+   - 글꼴: 원티드 산스(한글·본문·제목) + Archivo(로고) — app/layout.tsx 에서 불러옴
    ───────────────────────────────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #1d1d1f;
-  --secondary: #6e6e73;
-  --tertiary: #86868b;
-  --card-bg: #ffffff;
-  --card-border: #d2d2d7;
-  --section-bg: #f5f5f7;
-  --accent: #0071e3;
-  --accent-hover: #0077ed;
-  /* 보조 상태색 (= "베타 모집 중" 등 강조색과 구분되는 warning 계열). */
-  --warning: #C2680A;
-  /* 반전 구역 (= 흰 페이지 사이에 들어가는 검은 구역 / 로고 배경). */
-  --inverse-bg: #000000;
-  --inverse-fg: #f5f5f7;
-  --inverse-secondary: #a1a1a6;
-  --accent-on-dark: #2997ff;
-  /* 흰 글씨가 올라가는 버튼 전용 파랑 (= 두 테마 모두 흰 글씨 대비 4.5:1 이상). */
-  --accent-fill: #0071e3;
-  --accent-fill-hover: #0077ed;
-  /* 머리글 = 애플처럼 항상 짙은 반투명 (= 흰 구역·검은 구역 어디서든 자연스럽게). */
-  --nav-bg: rgb(22 22 23 / 0.8);
+  --background: #fcfcfd;
+  --foreground: #16181d;
+  --secondary: #5f6470;
+  /* 아이콘·장식 전용 (글씨에는 쓰지 않음: 작은 글씨 대비 4.5:1 미달) */
+  --tertiary: #8a8f9b;
+  --card-bg: #fdfdfe;
+  --card-border: #d8dbe2;
+  --section-bg: #f3f4f7;
+  /* 코발트: 글자·링크용(--accent)과 흰 글씨가 올라가는 버튼용(--accent-fill)을 나눈다. */
+  --accent: #1858d8;
+  --accent-hover: #1449b8;
+  --accent-fill: #1858d8;
+  --accent-fill-hover: #1449b8;
+  --accent-soft: rgb(24 88 216 / 0.08);
+  /* 반전 구역 (= 밝은 페이지 사이의 어두운 구역: 만든 앱 코스). */
+  --inverse-bg: #0b0d12;
+  --inverse-fg: #f3f4f7;
+  --inverse-secondary: #a3a8b4;
+  --accent-on-dark: #7aa2ff;
+  /* 머리글 = 애플처럼 항상 짙은 반투명. */
+  --nav-bg: rgb(11 13 18 / 0.78);
   --shadow-card: none;
-  --shadow-card-hover: 0 8px 28px rgba(0, 0, 0, 0.08);
+  --shadow-card-hover: 0 10px 30px rgb(11 13 18 / 0.08);
+  /* 실제 앱 화면(폰)에만 쓰는 그림자와 폰 테두리(흑연색: 어두운 타일 위에서도 보이게 바탕보다 밝다). */
+  --shadow-product: 0 18px 50px rgb(11 13 18 / 0.18), 0 4px 12px rgb(11 13 18 / 0.08);
+  --device: #1c1f27;
 }
 
 .dark {
-  --background: #000000;
-  --foreground: #f5f5f7;
-  --secondary: #a1a1a6;
-  --tertiary: #6e6e73;
-  --card-bg: #1d1d1f;
-  --card-border: #424245;
-  --section-bg: #161617;
-  --accent: #2997ff;
-  --accent-hover: #47a3ff;
-  /* 다크 모드 = 어두운 배경에서도 또렷한 amber 톤. */
-  --warning: #F0A33E;
-  --inverse-bg: #000000;
-  --inverse-fg: #f5f5f7;
-  --inverse-secondary: #a1a1a6;
-  --accent-on-dark: #2997ff;
-  --accent-fill: #0071e3;
-  --accent-fill-hover: #0077ed;
-  --nav-bg: rgb(22 22 23 / 0.8);
+  --background: #0b0d12;
+  --foreground: #eef0f4;
+  --secondary: #a3a8b4;
+  --tertiary: #6b7180;
+  --card-bg: #151821;
+  --card-border: #2a2f3b;
+  --section-bg: #10131a;
+  --accent: #7aa2ff;
+  --accent-hover: #9bb9ff;
+  --accent-fill: #1858d8;
+  --accent-fill-hover: #2466ea;
+  --accent-soft: rgb(122 162 255 / 0.1);
+  --inverse-bg: #06070a;
+  --inverse-fg: #eef0f4;
+  --inverse-secondary: #a3a8b4;
+  --accent-on-dark: #7aa2ff;
+  --nav-bg: rgb(11 13 18 / 0.78);
   --shadow-card: none;
-  --shadow-card-hover: 0 8px 28px rgba(0, 0, 0, 0.5);
+  --shadow-card-hover: 0 10px 30px rgb(0 0 0 / 0.5);
+  --shadow-product: 0 18px 50px rgb(0 0 0 / 0.55);
+  --device: #1c1f27;
 }
 
 @theme inline {
@@ -66,7 +72,9 @@
   --color-section-bg: var(--section-bg);
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
-  --color-warning: var(--warning);
+  /* text-white·ring-black 도 순수 흰색·검정 대신 코발트가 살짝 섞인 색으로. */
+  --color-white: #fdfdfe;
+  --color-black: #0b0d12;
   --color-inverse-bg: var(--inverse-bg);
   --color-inverse-fg: var(--inverse-fg);
   --color-inverse-secondary: var(--inverse-secondary);
@@ -75,13 +83,17 @@
 
 html {
   scroll-behavior: smooth;
+  /* 브라우저가 그리는 부분(체크박스·스크롤바·입력 커서)도 브랜드 색으로. */
+  accent-color: var(--accent-fill);
+  caret-color: var(--accent);
+  scrollbar-color: color-mix(in srgb, var(--foreground) 28%, transparent) transparent;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
-  letter-spacing: -0.02em;
+  font-family: "Wanted Sans Variable", "Wanted Sans", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif;
+  letter-spacing: -0.01em;
   line-height: 1.5;
   /* 한글은 낱말 단위로 줄바꿈 (= "있습니 / 다" 처럼 끊기지 않게). 긴 주소는 넘치지 않게 끊는다. */
   word-break: keep-all;
@@ -91,54 +103,69 @@ body {
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-/* 애플 스타일 + Pretendard = 제목은 자간을 좁히고 줄 간격을 촘촘하게 */
+/* 문단 마지막 줄에 낱말 하나만 남지 않게. */
+p { text-wrap: pretty; }
+
+/* 제목은 자간을 조금 좁히고 줄 간격을 촘촘하게 (자간은 -0.04em 보다 좁히지 않음). */
 h1, h2, h3, h4, h5, h6 {
-  letter-spacing: -0.04em;
+  letter-spacing: -0.03em;
   line-height: 1.3;
   text-wrap: balance;
 }
 
+::selection {
+  background: var(--accent-fill);
+  color: #fdfdfe;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
 /* ─────────────────────────────────────────────────────────────
    움직임 = 스크롤 이야기 (애플 제품 페이지 방식, 전부 CSS)
-   1 첫 화면: 멈춘 채 작아지며 물러나고 다음 구역이 커튼처럼 덮음
-   2 선언문: 둥근 회색 시트가 첫 화면을 덮고, 고정된 문장이 한 단어씩 또렷해짐
-   3 앱 아이콘: 크게 날아와 제자리에 앉음 / 카드·목록은 떠오름
-   4 러닝 코스: 선이 그려지며 km 가 올라가고 기록이 차례로 나타남
-   5 머리글 진행 막대: 페이지를 얼마나 내렸는지
+   1 첫 화면: 멈춘 채 제목과 폰이 작아지며 물러나고, 둥근 회색 시트가 덮음
+   2 선언문: 고정된 문장이 한 단어씩 또렷해지고 뒤에서 코발트 빛이 번짐
+   3 앱 아이콘: 크게 날아와 제자리에 앉음 / 목록은 떠오름
+   4 만든 앱 코스: 고정된 어두운 무대에서 선이 그려지고, 선이 닿을 때마다
+     만든 것이 하나씩 켜지며 "만든 것" 숫자가 0 → 5
+   5 소개 사진: 화면에 들어오며 둥근 창이 열리듯 펼쳐짐
+   6 머리글 진행 막대: 페이지를 얼마나 내렸는지
    - 움직임 줄이기 설정 사용자, 스크롤 연동을 지원하지 않는 브라우저(파이어폭스 등)는
      긴 고정 구역 없이 완성된 모습이 그대로 보인다.
    ───────────────────────────────────────────────────────────── */
-@property --km {
+@property --built {
   syntax: "<integer>";
   inherits: false;
-  initial-value: 42;
+  initial-value: 5;
 }
-.km-count { counter-reset: km var(--km); }
-.km-count::before { content: counter(km); }
+.built-count { counter-reset: built var(--built); }
+.built-count::before { content: counter(built); }
 
-/* 선언문 뒤 빛 = 파랑·보라·분홍·주황이 겹친 부드러운 원들 (흐림 필터 없이 그라데이션만). */
+/* 선언문 뒤 빛 = 코발트 한 색만, 두 겹의 부드러운 원 (흐림 필터 없이 그라데이션만). */
 .manifesto-glow {
   background:
-    radial-gradient(closest-side at 34% 42%, rgb(41 151 255 / 0.34), transparent),
-    radial-gradient(closest-side at 66% 40%, rgb(162 89 255 / 0.28), transparent),
-    radial-gradient(closest-side at 58% 68%, rgb(255 110 150 / 0.24), transparent),
-    radial-gradient(closest-side at 38% 66%, rgb(255 176 87 / 0.22), transparent);
+    radial-gradient(closest-side at 38% 44%, rgb(24 88 216 / 0.2), transparent),
+    radial-gradient(closest-side at 64% 60%, rgb(122 162 255 / 0.22), transparent);
 }
 
 /* 코스 선 = pathLength 1 기준. 기본은 다 그려진 상태. */
-.course-line { stroke-dasharray: 1 2; stroke-dashoffset: 0; }
+.route-line { stroke-dasharray: 1 2; stroke-dashoffset: 0; }
 .scroll-progress { display: none; }
 
 @keyframes rise { from { opacity: 0; transform: translateY(18px); } }
 @keyframes reveal { from { opacity: 0; transform: translateY(32px) scale(0.97); } }
-@keyframes hero-away { to { opacity: 0; transform: scale(0.8); } }
-@keyframes glow-in { from { opacity: 0; transform: scale(0.55) rotate(-40deg); } to { transform: scale(1.05) rotate(25deg); } }
-@keyframes word-on { from { opacity: 0.22; filter: blur(3px); } }
+@keyframes hero-away { to { opacity: 0; transform: scale(0.84); } }
+@keyframes glow-in { from { opacity: 0; transform: scale(0.6) rotate(-30deg); } to { transform: scale(1.05) rotate(20deg); } }
+/* 아직 켜지지 않은 단어도 큰 글자 대비 3:1 이상 (= 스크롤 전에도 읽힌다). */
+@keyframes word-on { from { opacity: 0.52; filter: blur(1.5px); } }
 @keyframes icon-land { from { transform: translateY(-45%) scale(1.9) rotate(-8deg); } }
 @keyframes draw { from { stroke-dashoffset: 1.02; } to { stroke-dashoffset: 0; } }
-@keyframes pop { from { opacity: 0; transform: scale(0.4); } }
+@keyframes pop { from { opacity: 0; transform: translateY(10px) scale(0.92); } }
 @keyframes fade-up { from { opacity: 0; transform: translateY(20px); } }
-@keyframes km-up { from { --km: 0; } to { --km: 42; } }
+@keyframes built-up { from { --built: 0; } to { --built: 5; } }
+@keyframes photo-open { from { clip-path: inset(9% 7% round 44px); transform: scale(1.06); } }
 @keyframes grow-x { from { transform: scaleX(0); } }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -193,29 +220,36 @@ h1, h2, h3, h4, h5, h6 {
       animation-range: entry 30% cover 50%;
     }
 
-    /* 4 러닝 코스 */
-    .run { view-timeline-name: --run; }
-    .course-line,
-    .km-count {
-      animation-timeline: --run;
+    /* 4 만든 앱 코스 (선이 그려지는 구간 = contain 8%~78%, 코스 컴포넌트의 DRAW_START/SPAN 과 맞춤) */
+    .route { view-timeline-name: --route; }
+    .route-line,
+    .built-count {
+      animation-timeline: --route;
       animation-range: contain 8% contain 78%;
       animation-fill-mode: both;
-      animation-timing-function: linear;
     }
-    .course-line { animation-name: draw; }
-    .km-count { animation-name: km-up; }
-    .course-mark {
+    .route-line { animation-name: draw; animation-timing-function: linear; }
+    /* 숫자는 선이 20%·40%… 지점(= 만든 것 하나)에 닿을 때마다 1씩 오른다. */
+    .built-count { animation-name: built-up; animation-timing-function: steps(5, jump-end); }
+    .route-stop {
       animation: pop cubic-bezier(0.16, 1, 0.3, 1) both;
-      animation-timeline: --run;
+      animation-timeline: --route;
       animation-range: contain var(--a) contain var(--b);
     }
-    .course-after {
+    .route-after {
       animation: fade-up linear both;
-      animation-timeline: --run;
+      animation-timeline: --route;
       animation-range: contain 82% contain 90%;
     }
 
-    /* 5 진행 막대 */
+    /* 5 소개 사진 */
+    .photo-reveal {
+      animation: photo-open linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 45%;
+    }
+
+    /* 6 진행 막대 */
     .scroll-progress {
       display: block;
       transform-origin: left;
@@ -297,11 +331,12 @@ h1, h2, h3, h4, h5, h6 {
   border-top: 1px solid var(--card-border);
   margin: 32px 0;
 }
+/* 안내 상자: 한쪽 굵은 줄 대신 옅은 바탕 + 얇은 테두리 (한쪽 색 줄은 AI 티로 꼽힘). */
 .legal-prose blockquote {
-  border-left: 3px solid var(--accent);
-  padding: 8px 16px;
+  padding: 12px 16px;
   margin: 16px 0;
   background: var(--section-bg);
-  border-radius: 0 8px 8px 0;
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
   color: var(--secondary);
 }

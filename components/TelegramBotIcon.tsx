@@ -2,7 +2,7 @@
  * 텔레그램 봇 아이콘 — 텔레그램 종이비행기 모티프에 로봇 느낌(안테나 + 눈)을 더한 상징 아이콘.
  *
  * - 본체(종이비행기)는 currentColor 로 그려져 강조색 박스 안에서 흰색으로 표시됩니다.
- * - 안테나 = 로봇 느낌. 눈 2개는 박스 강조색(var(--accent))으로 칠해 음각(구멍)처럼 보이게 하여
+ * - 안테나 = 로봇 느낌. 눈 2개는 박스 색(var(--accent-fill))으로 칠해 음각(구멍)처럼 보이게 하여
  *   라이트/다크 모드 모두 자동으로 어울립니다. (강조색 박스 위에서 사용하는 것을 전제로 합니다.)
  */
 export function TelegramBotIcon({
@@ -46,8 +46,8 @@ export function TelegramBotIcon({
       />
 
       {/* 로봇 눈 2개 (박스 강조색으로 음각 표현) */}
-      <circle cx="6.7" cy="11.2" r="1.05" fill="var(--accent)" />
-      <circle cx="9.5" cy="10.0" r="1.05" fill="var(--accent)" />
+      <circle cx="6.7" cy="11.2" r="1.05" fill="var(--accent-fill)" />
+      <circle cx="9.5" cy="10.0" r="1.05" fill="var(--accent-fill)" />
     </svg>
   );
 }

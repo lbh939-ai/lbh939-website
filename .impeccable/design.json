@@ -1,0 +1,447 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-29T00:00:00Z",
+  "title": "Design System: lbh939",
+  "extensions": {
+    "colorMeta": {
+      "cobalt": {
+        "role": "primary",
+        "displayName": "러닝뷰 코발트",
+        "canonical": "#1858d8",
+        "tonalRamp": [
+          "#020a20",
+          "#082051",
+          "#123987",
+          "#1d54c2",
+          "#3875ee",
+          "#6a9cfb",
+          "#a0c4ff",
+          "#ddefff"
+        ]
+      },
+      "cobalt-deep": {
+        "role": "primary",
+        "displayName": "짙은 코발트",
+        "canonical": "#1449b8",
+        "tonalRamp": [
+          "#020a20",
+          "#092051",
+          "#133987",
+          "#1f54c2",
+          "#3d76e9",
+          "#6b9cfb",
+          "#a1c4ff",
+          "#ddefff"
+        ]
+      },
+      "cobalt-on-dark": {
+        "role": "primary",
+        "displayName": "밤 코발트",
+        "canonical": "#7aa2ff",
+        "tonalRamp": [
+          "#030920",
+          "#0d1f51",
+          "#1b3787",
+          "#3657ad",
+          "#5478d2",
+          "#739bf7",
+          "#a4c3ff",
+          "#deefff"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "종이 흰색",
+        "canonical": "#fcfcfd",
+        "tonalRamp": [
+          "#0b0b0c",
+          "#242425",
+          "#404040",
+          "#5d5d5e",
+          "#7d7d7e",
+          "#9e9e9f",
+          "#c4c4c5",
+          "#eeeeef"
+        ]
+      },
+      "sheet-gray": {
+        "role": "neutral",
+        "displayName": "시트 회색",
+        "canonical": "#f3f4f7",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#232426",
+          "#3f4042",
+          "#5d5d60",
+          "#7c7d80",
+          "#9d9ea1",
+          "#c3c4c7",
+          "#edeef1"
+        ]
+      },
+      "card-white": {
+        "role": "neutral",
+        "displayName": "카드 흰색",
+        "canonical": "#fdfdfe",
+        "tonalRamp": [
+          "#0b0b0c",
+          "#242425",
+          "#404040",
+          "#5d5d5e",
+          "#7d7d7e",
+          "#9e9e9f",
+          "#c4c4c5",
+          "#eeeeef"
+        ]
+      },
+      "hairline": {
+        "role": "neutral",
+        "displayName": "가는 선 회색",
+        "canonical": "#d8dbe2",
+        "tonalRamp": [
+          "#090b10",
+          "#222429",
+          "#3d4045",
+          "#5b5e64",
+          "#7a7d83",
+          "#9b9ea5",
+          "#c1c4cb",
+          "#ebeef5"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "먹색",
+        "canonical": "#16181d",
+        "tonalRamp": [
+          "#090b10",
+          "#222429",
+          "#3d4045",
+          "#5b5d64",
+          "#7a7d84",
+          "#9c9ea5",
+          "#c1c4cb",
+          "#ebeef6"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "옅은 먹색",
+        "canonical": "#5f6470",
+        "tonalRamp": [
+          "#080b14",
+          "#20242e",
+          "#3b404b",
+          "#595d69",
+          "#787d8a",
+          "#999eab",
+          "#bec4d2",
+          "#e8eefd"
+        ]
+      },
+      "mute-icon": {
+        "role": "neutral",
+        "displayName": "아이콘 회색 (장식 전용)",
+        "canonical": "#8a8f9b",
+        "tonalRamp": [
+          "#080b13",
+          "#20242d",
+          "#3b404a",
+          "#595d69",
+          "#787d89",
+          "#999eab",
+          "#bfc4d1",
+          "#e9eefc"
+        ]
+      },
+      "night": {
+        "role": "neutral",
+        "displayName": "밤색",
+        "canonical": "#0b0d12",
+        "tonalRamp": [
+          "#090b10",
+          "#22242a",
+          "#3d4046",
+          "#5b5d64",
+          "#7a7d84",
+          "#9b9ea6",
+          "#c1c4cc",
+          "#ebeef6"
+        ]
+      },
+      "night-soft-text": {
+        "role": "neutral",
+        "displayName": "밤 위 옅은 글자",
+        "canonical": "#a3a8b4",
+        "tonalRamp": [
+          "#080b13",
+          "#20242d",
+          "#3b404a",
+          "#595d68",
+          "#787d88",
+          "#999eaa",
+          "#bfc4d0",
+          "#e9eefb"
+        ]
+      },
+      "graphite-device": {
+        "role": "neutral",
+        "displayName": "흑연 폰",
+        "canonical": "#1c1f27",
+        "tonalRamp": [
+          "#080b12",
+          "#21242c",
+          "#3c4048",
+          "#5a5d67",
+          "#797d87",
+          "#9a9ea9",
+          "#c0c4cf",
+          "#eaeefa"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "첫 화면 제목 한 곳 (소개 제목 40→56px 도 같은 결)."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "구역 제목, 아래 Lead 한 줄과 가운데 정렬."
+      },
+      "manifesto": {
+        "displayName": "Manifesto",
+        "purpose": "선언문 문장, 스크롤에 따라 한 단어씩 또렷해짐."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "앱 이름, 만드는 중인 항목 이름."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "제목 아래 한 줄 소개, 버튼 글자(600)."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "설명 문단, 옅은 먹색."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "상태 칩, 머리글 메뉴."
+      },
+      "wordmark": {
+        "displayName": "Wordmark (Archivo)",
+        "purpose": "bbing_he 로고 전용. 모양 A 800 소문자 / 모양 C 900 기울인 좁은 대문자."
+      }
+    },
+    "shadows": [
+      {
+        "name": "shadow-product",
+        "value": "0 18px 50px rgb(11 13 18 / 0.18), 0 4px 12px rgb(11 13 18 / 0.08)",
+        "purpose": "실제 앱 화면을 담은 폰에만. 다크: 0 18px 50px rgb(0 0 0 / 0.55)."
+      },
+      {
+        "name": "sheet-lift",
+        "value": "0 -16px 48px rgb(11 13 18 / 0.07)",
+        "purpose": "첫 화면을 덮는 선언문 시트의 윗가장자리."
+      },
+      {
+        "name": "icon-inline",
+        "value": "0 4px 14px rgb(11 13 18 / 0.12)",
+        "purpose": "선언문 속 앱 아이콘."
+      },
+      {
+        "name": "nav-glass",
+        "value": "background: rgb(11 13 18 / 0.78); backdrop-filter: blur(24px) saturate(1.8)",
+        "purpose": "머리글 막대."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "첫 화면 등장(0.9s, 0.1s 간격), 만든 것 켜짐(pop)."
+      },
+      {
+        "name": "hero-away",
+        "value": "scale(0.84) + opacity 0 over scroll(root) 0–85vh",
+        "purpose": "첫 화면이 멈춘 채 작아지며 물러남."
+      },
+      {
+        "name": "word-on",
+        "value": "opacity 0.52 + blur(1.5px) → 선명, view-timeline --manifesto contain 12%–82%",
+        "purpose": "선언문 단어가 차례로 켜짐."
+      },
+      {
+        "name": "draw + built-up",
+        "value": "stroke-dashoffset 1.02→0, --built 0→5 steps(5), contain 8%–78%",
+        "purpose": "만든 앱 코스 선과 숫자."
+      },
+      {
+        "name": "icon-land",
+        "value": "translateY(-45%) scale(1.9) rotate(-8deg) → 제자리, entry 30%–cover 50%",
+        "purpose": "앱 타일 아이콘이 날아와 앉음."
+      },
+      {
+        "name": "reveal",
+        "value": "translateY(32px) scale(0.97) + fade, entry 0–70%",
+        "purpose": "목록 떠오름."
+      },
+      {
+        "name": "photo-open",
+        "value": "clip-path inset(9% 7% round 44px) + scale(1.06) → 전체",
+        "purpose": "소개 사진이 열리듯 펼쳐짐."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "@media (prefers-reduced-motion: no-preference) + @supports (animation-timeline: view())",
+        "purpose": "조건이 안 맞으면 완성된 정지 화면."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Pill",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "한 화면의 대표 행동.",
+      "html": "<a class=\"ds-pill-primary\" href=\"#\">무료로 받기</a>",
+      "css": ".ds-pill-primary{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 24px;border-radius:9999px;background:var(--accent-fill,#1858d8);color:#fdfdfe;font-size:17px;font-weight:600;text-decoration:none;transition:background .15s,transform .15s}.ds-pill-primary:hover{background:var(--accent-fill-hover,#1449b8)}.ds-pill-primary:active{transform:scale(.95)}.ds-pill-primary:focus-visible{outline:2px solid var(--accent,#1858d8);outline-offset:3px}"
+    },
+    {
+      "name": "Secondary Pill",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "연락 구역의 나머지 선택지.",
+      "html": "<a class=\"ds-pill-secondary\" href=\"#\">개발 제안</a>",
+      "css": ".ds-pill-secondary{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 24px;border-radius:9999px;border:1px solid var(--accent,#1858d8);color:var(--accent,#1858d8);font-size:17px;font-weight:600;text-decoration:none;transition:all .15s}.ds-pill-secondary:hover{background:var(--accent-fill,#1858d8);border-color:var(--accent-fill,#1858d8);color:#fdfdfe}.ds-pill-secondary:active{transform:scale(.95)}.ds-pill-secondary:focus-visible{outline:2px solid var(--accent,#1858d8);outline-offset:3px}"
+    },
+    {
+      "name": "Chevron Link",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "코발트 글자 + 작은 화살표 링크.",
+      "html": "<a class=\"ds-chevron-link\" href=\"#\">자세히 보기<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m9 18 6-6-6-6\"/></svg></a>",
+      "css": ".ds-chevron-link{display:inline-flex;align-items:center;min-height:44px;font-size:17px;color:var(--accent,#1858d8);text-decoration:none;text-underline-offset:4px}.ds-chevron-link:hover{text-decoration:underline}.ds-chevron-link:focus-visible{outline:2px solid var(--accent,#1858d8);outline-offset:3px}"
+    },
+    {
+      "name": "Status Chip",
+      "kind": "chip",
+      "refersTo": "status-chip",
+      "description": "만드는 중인 항목의 상태.",
+      "html": "<span class=\"ds-chip\">개발 중</span>",
+      "css": ".ds-chip{display:inline-block;border-radius:9999px;background:rgb(24 88 216 / .08);color:var(--accent,#1858d8);padding:4px 12px;font-size:13px;font-weight:600}"
+    },
+    {
+      "name": "App Tile (dark)",
+      "kind": "card",
+      "refersTo": "app-tile-dark",
+      "description": "큰 앱 타일, 아래에 실제 화면 폰이 올라와 잘림.",
+      "html": "<article class=\"ds-tile\"><div class=\"ds-tile-icon\"></div><h3>러닝뷰</h3><p>대회 일정, 훈련 다이어리, 크루 관리</p><div class=\"ds-tile-phone\"><div class=\"ds-tile-screen\"></div></div></article>",
+      "css": ".ds-tile{display:flex;flex-direction:column;align-items:center;overflow:hidden;border-radius:28px;padding:48px 32px 0;text-align:center;background:var(--inverse-bg,#0b0d12);color:var(--inverse-fg,#f3f4f7);box-shadow:inset 0 0 0 1px rgb(243 244 247 / .1)}.ds-tile-icon{width:72px;height:72px;border-radius:22%;background:#1858d8}.ds-tile h3{margin:20px 0 0;font-size:40px;font-weight:700;letter-spacing:-.04em;line-height:1.1}.ds-tile p{margin:8px 0 0;font-size:17px;color:var(--inverse-secondary,#a3a8b4)}.ds-tile-phone{margin-top:40px;width:68%;max-width:270px;background:#1c1f27;border-radius:36px 36px 0 0;padding:8px 8px 0;box-shadow:0 18px 50px rgb(11 13 18 / .18)}.ds-tile-screen{height:200px;background:#fefefe;border-radius:28px 28px 0 0}"
+    },
+    {
+      "name": "Grouped List",
+      "kind": "card",
+      "refersTo": "list-group",
+      "description": "링크 페이지의 아이폰 설정식 묶음 목록.",
+      "html": "<section><h2 class=\"ds-group-title\">연락</h2><ul class=\"ds-group\"><li><a href=\"#\"><span>협업·협찬 문의</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"m9 18 6-6-6-6\"/></svg></a></li><li><a href=\"#\"><span>개발 제안</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"m9 18 6-6-6-6\"/></svg></a></li></ul></section>",
+      "css": ".ds-group-title{padding:0 16px 8px;margin:0;font-size:13px;font-weight:400;color:var(--secondary,#5f6470)}.ds-group{list-style:none;margin:0;padding:0;overflow:hidden;border-radius:18px;background:var(--card-bg,#fdfdfe)}.ds-group li+li{border-top:1px solid rgb(216 219 226 / .6)}.ds-group a{display:flex;align-items:center;justify-content:space-between;min-height:56px;padding:12px 16px;font-size:16px;font-weight:600;color:var(--foreground,#16181d);text-decoration:none}.ds-group a svg{color:var(--tertiary,#8a8f9b)}.ds-group a:active{background:var(--section-bg,#f3f4f7)}.ds-group a:focus-visible{outline:2px solid var(--accent,#1858d8);outline-offset:-2px}"
+    },
+    {
+      "name": "Glass Nav Bar",
+      "kind": "nav",
+      "refersTo": "nav-bar",
+      "description": "항상 짙은 반투명 머리글 + 진행 막대.",
+      "html": "<header class=\"ds-nav\"><a href=\"#\" class=\"ds-nav-logo\">lbh939</a><nav><a href=\"#\">앱</a><a href=\"#\">만드는 중</a><a href=\"#\">소개</a><a href=\"#\">연락</a></nav><div class=\"ds-nav-progress\"></div></header>",
+      "css": ".ds-nav{position:relative;display:flex;align-items:center;justify-content:space-between;height:52px;padding:0 24px;background:rgb(11 13 18 / .78);backdrop-filter:blur(24px) saturate(1.8);border-bottom:1px solid rgb(243 244 247 / .1);color:#f3f4f7}.ds-nav-logo{font-size:17px;font-weight:700;color:inherit;text-decoration:none}.ds-nav nav{display:flex;gap:28px}.ds-nav nav a{display:inline-flex;align-items:center;min-height:44px;font-size:13px;color:rgb(243 244 247 / .8);text-decoration:none;transition:color .15s}.ds-nav nav a:hover{color:#f3f4f7}.ds-nav a:focus-visible{outline:2px solid #7aa2ff;outline-offset:3px}.ds-nav-progress{position:absolute;left:0;bottom:0;height:2px;width:40%;background:#7aa2ff}"
+    },
+    {
+      "name": "Phone",
+      "kind": "custom",
+      "description": "실제 앱 화면을 담는 흑연색 폰 (상태 표시줄 자리 + 다이내믹 아일랜드).",
+      "html": "<div class=\"ds-phone\"><div class=\"ds-phone-frame\"><div class=\"ds-phone-screen\"><div class=\"ds-phone-bar\"><span></span></div><div class=\"ds-phone-shot\"></div></div></div></div>",
+      "css": ".ds-phone{container-type:inline-size;width:200px}.ds-phone-frame{background:var(--device,#1c1f27);border-radius:14cqw;padding:3cqw;box-shadow:0 18px 50px rgb(11 13 18 / .18),0 4px 12px rgb(11 13 18 / .08),inset 0 0 0 1px rgb(243 244 247 / .1)}.ds-phone-screen{overflow:hidden;border-radius:11cqw;background:#fefefe}.ds-phone-bar{position:relative;height:12cqw}.ds-phone-bar span{position:absolute;left:50%;top:3cqw;height:6.5cqw;width:30cqw;transform:translateX(-50%);border-radius:9999px;background:var(--device,#1c1f27)}.ds-phone-shot{height:320px;background:linear-gradient(#f3f4f7,#fcfcfd)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "직접 쓰는 도구의 진열대",
+    "overview": "**Creative North Star: \"직접 쓰는 도구의 진열대\"**\n\n애플 홈페이지처럼, 넓은 흰 바탕 위에 실제 앱 화면을 담은 폰이 주인공으로 서 있는 사이트입니다. 글은 짧고 크게, 색은 코발트 하나만 씁니다. 화면은 빽빽하지 않고, 한 구역에 한 가지 이야기만 합니다.\n\n움직임은 스크롤이 이끕니다. 첫 화면은 멈춘 채 작아지며 물러나고, 둥근 회색 시트가 위를 덮고, 선언문이 한 단어씩 또렷해지고, 어두운 무대에서 코발트 선이 그려지며 만든 것이 하나씩 켜집니다. 모든 움직임은 CSS만으로 만들며, \"동작 줄이기\" 사용자나 스크롤 연동을 지원하지 않는 브라우저에서는 완성된 모습이 그대로 보입니다.\n\n밝은 구역(흰색·연회색)과 어두운 구역(코발트가 섞인 거의 검정)이 번갈아 나오며 리듬을 만듭니다. 사진은 실제 앱 화면과 실제 야간 트랙 사진만 씁니다. 숫자는 지어내지 않습니다.",
+    "keyCharacteristics": [
+      "코발트 한 색 + 코발트가 살짝 섞인 회색·검정",
+      "원티드 산스 하나로 모든 한글, Archivo 는 bbing_he 로고에만",
+      "실제 앱 화면을 담은 흑연색 둥근 폰이 제품 사진 역할",
+      "알약 모양 버튼, 크게 둥근 타일(28px), 위가 둥근 시트(36/48px)",
+      "스크롤이 이야기를 진행시키는 CSS 전용 움직임, 줄이기 설정이면 정지 화면"
+    ],
+    "rules": [
+      {
+        "name": "The One Cobalt Rule",
+        "body": "강조색은 코발트 한 가족(코발트·짙은 코발트·밤 코발트)뿐입니다. 두 번째 강조색을 들이지 않습니다.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tinted Neutral Rule",
+        "body": "흰색·회색·검정은 모두 코발트가 살짝 섞인 값입니다. 순수 `#000`·`#fff` 는 쓰지 않습니다.",
+        "section": "colors"
+      },
+      {
+        "name": "The Single-Hue Glow Rule",
+        "body": "빛 번짐은 선언문 뒤의 코발트 두 겹 원형 그라데이션 하나뿐입니다. 코발트와 밤 코발트만 쓰고, 흐림 필터 없이 그라데이션만으로 만듭니다.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tight-But-Not-Crushed Rule",
+        "body": "큰 제목의 자간은 -0.04em 까지만 좁힙니다. 제목 기본은 -0.03em, 본문은 -0.01em.",
+        "section": "typography"
+      },
+      {
+        "name": "The Logo-Only Archivo Rule",
+        "body": "Archivo 는 bbing_he 로고(모양 A 똑바른 굵은 소문자 800 / 모양 C 기울인 좁은 대문자 900)에만 씁니다. 사이트 글자와 공유 이미지의 한글은 원티드 산스입니다.",
+        "section": "typography"
+      },
+      {
+        "name": "로고 색 세트",
+        "body": "로고는 모양(A/C)은 그대로 두고 색 세트만 그때그때 바꿔 씁니다: dark(기본), light, blue, neon, gradient (`app/projects.ts` 의 `LOGO`, 색 값은 `components/Wordmark.tsx`). 사용자가 직접 고른 인스타용 변형이라 neon·gradient 는 사이트 색 규칙 밖이어도 로고 안에서만 허용합니다. 사이트 본문과 공유 이미지는 dark 입니다.",
+        "section": "typography"
+      },
+      {
+        "name": "The Real-Object Shadow Rule",
+        "body": "그림자는 폰·아이콘처럼 실제 물건에만 씁니다. 타일과 목록은 바탕색 차이로 구분하고 그림자를 주지 않습니다(`--shadow-card: none`).",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** 강조색은 코발트 한 가족만 쓰고, 어두운 바탕 위 글자·선은 밤 코발트로 바꿉니다.",
+      "**Do** 실제 앱 화면은 흑연색 폰에 담아 보여 줍니다.",
+      "**Do** 밝은 구역과 어두운(밤색) 구역을 번갈아 두어 리듬을 만듭니다.",
+      "**Do** 모든 스크롤 움직임은 CSS 로, \"동작 줄이기\"와 미지원 브라우저에서는 완성된 모습이 그대로 보이게 합니다.",
+      "**Do** 누를 수 있는 곳은 44px 이상, 글자는 WCAG AA 대비 이상으로 둡니다(아이콘 회색은 글씨에 쓰지 않음).",
+      "**Do** 버튼은 알약, 타일은 28px, 폰은 자기 폭 비례로 둥글게 합니다."
+    ],
+    "donts": [
+      "**Don't** 보라·파랑이 섞인 여러 색 그라데이션 빛을 쓰지 않습니다(코발트 한 색 선언문 빛만 허용).",
+      "**Don't** Inter, Pretendard, 시스템 글꼴을 제목 글꼴로 쓰지 않습니다. 한글은 원티드 산스, 로고만 Archivo.",
+      "**Don't** 같은 크기 카드 세 개를 한 줄에 늘어놓지 않습니다.",
+      "**Don't** 제목 위에 작은 라벨(눈썹 글)을 달지 않습니다.",
+      "**Don't** 카드나 안내 상자에 한쪽 굵은 색 줄을 긋지 않습니다(만드는 중 구역의 점선 길은 줄이 아니라 길입니다).",
+      "**Don't** 순수 `#000`·`#fff` 를 쓰지 않습니다.",
+      "**Don't** 화면에 보이는 글에 긴 줄표(—)를 쓰지 않습니다(약관 문서만 예외).",
+      "**Don't** 러닝 기록을 중심 소재로 쓰거나, 이용자 수 같은 숫자를 지어내지 않습니다."
+    ]
+  }
+}

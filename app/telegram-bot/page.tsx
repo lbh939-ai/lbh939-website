@@ -18,7 +18,7 @@ import { Footer } from "@/components/Footer";
 import { TelegramBotIcon } from "@/components/TelegramBotIcon";
 
 export const metadata: Metadata = {
-  title: "텔레그램 봇 — 퀀트뷰의 분석을 텔레그램에서",
+  title: "텔레그램 봇 | 퀀트뷰의 분석을 텔레그램에서",
   description:
     "퀀트뷰 앱과 같은 데이터 · 같은 분석 엔진을 사용하는 텔레그램 봇. 종합 분석 · 오늘의 신호 · 물타기 분석 · 매크로 요약을 텔레그램에서 받아볼 수 있는 초대 기반 비공개 봇.",
 };
@@ -86,7 +86,7 @@ export default function TelegramBotPage() {
             </Link>
 
             <div className="flex items-start gap-5 mb-8">
-              <div className="shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-[var(--accent)] text-white inline-flex items-center justify-center">
+              <div className="shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-[var(--accent-fill)] text-white inline-flex items-center justify-center">
                 <TelegramBotIcon size={34} />
               </div>
               <div className="flex-1 min-w-0">

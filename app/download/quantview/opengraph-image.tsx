@@ -8,7 +8,7 @@ import {
 
 // Next.js opengraph-image 파일 규칙 — 이 라우트의 og:image / twitter:image 를 코드로 생성한다.
 export const runtime = "nodejs";
-export const alt = "퀀트뷰 — 미국·한국 주식 AI 분석";
+export const alt = "퀀트뷰 | 미국·한국 주식 AI 분석";
 export const size = OG_SIZE;
 export const contentType = OG_CONTENT_TYPE;
 
