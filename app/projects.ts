@@ -31,7 +31,7 @@ export const APPS: Project[] = [
   },
   {
     name: "러닝뷰",
-    desc: "대회 일정, 훈련 다이어리, 크루 관리",
+    desc: "마라톤 일정, 실시간 응원, 크루 관리",
     icon: "/icons/runningview.png",
     href: "/running-view",
     download: "/download/runningview",

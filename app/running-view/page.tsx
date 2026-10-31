@@ -4,61 +4,60 @@ import Link from "next/link";
 import {
   ArrowLeft,
   Download,
-  Footprints,
   CalendarDays,
-  Bot,
+  MapPinned,
+  Gauge,
+  Medal,
   Users,
   UsersRound,
   FlaskConical,
-  HeartPulse,
 } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "러닝뷰 | 러닝과 마라톤을 한 앱에서",
+  title: "러닝뷰 | 마라톤 일정 · 실시간 응원 · 크루 관리",
   description:
-    "마라톤 일정 조회·신청, AI 러닝 코치, 러닝 커뮤니티, 크루, 러닝랩 계산기까지 한 앱에 담은 러닝 앱. App Store와 Google Play에서 받아보세요.",
+    "마라톤 대회 일정, 실시간 대회 응원, 페이스 계획, 기록 인증, 크루 관리, 러닝 연구소까지 한 앱에 담은 러닝 앱. App Store와 Google Play에서 받아보세요.",
 };
 
-// 주요 기능 (= 작업 지시서 검증된 사실 안 실제 구현 기능 기반).
-//   러닝뷰는 실제 동작하는 앱(화면 약 54개)으로, 아래 기능은 모두 구현되어 있다.
+// 주요 기능 (= 스토어 설명과 같은 실제 기능 — 2026-10-31 앱 이름 변경·훈련 기록·AI 코치 삭제 반영).
 //   존댓말 통일 (= 절대 규칙 4번).
 const FEATURES = [
   {
     icon: CalendarDays,
-    title: "마라톤 일정",
-    desc: "한국 마라톤 대회 일정을 한곳에서 조회하고 참가 신청까지 연결해드립니다.",
+    title: "마라톤 대회 일정",
+    desc: "전국 마라톤 대회를 D-Day와 함께 한눈에 보고, 거리·지역·기간으로 찾을 수 있습니다. 주요 대회는 코스와 출발·급수 안내도 제공합니다.",
   },
   {
-    icon: Bot,
-    title: "AI 러닝 코치",
-    desc: "내 기록과 정보를 바탕으로 AI가 맞춤 분석과 코칭을 제공합니다.",
+    icon: MapPinned,
+    title: "실시간 대회 응원",
+    desc: "배번만 등록하면 가족·친구가 링크 하나로 내 위치와 구간 기록을 실시간으로 봅니다. 크루원끼리도 서로의 레이스를 함께 응원합니다.",
   },
   {
-    icon: Users,
-    title: "러닝 커뮤니티",
-    desc: "게시판에서 글을 쓰고 댓글과 팔로우로 러너들과 소통하실 수 있습니다.",
+    icon: Gauge,
+    title: "페이스 계획",
+    desc: "목표 기록을 넣으면 대회 코스의 오르막·내리막에 맞춰 5km마다 목표 페이스를 나눠 드립니다.",
+  },
+  {
+    icon: Medal,
+    title: "대회 기록 & 뱃지",
+    desc: "기록증 사진을 올리면 대회명·기록·종목을 자동으로 읽어 기록을 남기고, 기록에 따라 뱃지를 받습니다.",
   },
   {
     icon: UsersRound,
-    title: "크루",
-    desc: "러닝 크루를 만들고 가입해 훈련 일정과 출석 체크를 함께 관리합니다.",
+    title: "우리 크루",
+    desc: "크루원 관리, 훈련 출석, 인증 과제, 크루 간 랭킹까지 러닝 크루를 함께 관리합니다.",
   },
   {
     icon: FlaskConical,
-    title: "러닝랩",
-    desc: "페이스 계산기, 기록 예측, 연령 보정, 러닝 용어 사전을 제공합니다.",
+    title: "러닝 연구소",
+    desc: "예상 기록·페이스 산출기, 환산기, 용어사전, 러닝화 투표 등 러닝에 필요한 도구를 모았습니다.",
   },
   {
-    icon: HeartPulse,
-    title: "부상 기록",
-    desc: "부상 이력을 기록하고 관리하실 수 있습니다.",
-  },
-  {
-    icon: Footprints,
-    title: "신발 추천",
-    desc: "러닝화 정보와 추천을 확인하실 수 있습니다.",
+    icon: Users,
+    title: "커뮤니티",
+    desc: "전국 러너들과 후기와 정보, 꿀팁을 나누실 수 있습니다.",
   },
 ];
 
@@ -126,14 +125,14 @@ export default function RunningViewPage() {
                   </span>
                 </div>
                 <p className="text-sm sm:text-base text-[var(--secondary)]">
-                  대회 일정 · 훈련 다이어리 · 크루 관리
+                  마라톤 일정 · 실시간 응원 · 크루 관리
                 </p>
               </div>
             </div>
 
             <p className="text-base sm:text-lg text-[var(--secondary)] leading-relaxed max-w-3xl mb-8">
-              러닝뷰는 마라톤 일정 조회·신청, AI 러닝 코치, 러닝 커뮤니티, 크루,
-              러닝랩 계산기를 한 앱에 담은 러닝 앱입니다.
+              러닝뷰는 마라톤 대회 일정, 실시간 대회 응원, 페이스 계획, 기록 인증,
+              크루 관리, 러닝 연구소 도구를 한 앱에 담은 러닝 앱입니다.
             </p>
 
             <DownloadButtons />
