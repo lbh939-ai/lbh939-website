@@ -8,22 +8,22 @@ export const metadata: Metadata = {
 
 export default function AccountDeletePage() {
   return (
-    <LegalLayout title="계정 삭제 요청" effectiveDate="2026년 5월 12일">
+    <LegalLayout title="계정 삭제 요청" effectiveDate="2026년 11월 19일">
       <p>
         퀀트뷰는 이용자가 계정을 삭제하고 모든 개인정보 처리를 중단할 수 있는 권리를 보장합니다.
-        본 페이지는 Google Play 정책에 따라 앱 외부에서 계정 삭제 요청을 진행할 수 있는 흐름을 안내합니다.
+        계정은 앱 안에서 바로 삭제할 수 있고, 앱을 쓸 수 없는 경우에는 아래 경로로 요청할 수 있습니다.
       </p>
 
-      <h2>1. 앱 안에서 직접 삭제 (= 권장 흐름)</h2>
+      <h2>1. 앱 안에서 바로 삭제 (권장)</h2>
       <ol>
         <li>퀀트뷰 앱 실행</li>
-        <li>하단 메뉴에서 <strong>내정보</strong> 탭 진입</li>
-        <li><strong>계정 삭제</strong> 메뉴 선택</li>
-        <li>안내 확인 후 삭제 진행</li>
+        <li>하단 메뉴에서 <strong>내 정보</strong> 탭 진입</li>
+        <li>화면 맨 아래 <strong>계정 삭제</strong> 선택</li>
+        <li>확인 창에서 <strong>삭제</strong> 선택</li>
       </ol>
       <p>
-        삭제 요청 시점에 본인 확인을 위해 Google OAuth 재인증을 진행합니다. 인증 통과 후 즉시 계정 비활성화 +
-        7일 이내 데이터 영구 삭제가 진행됩니다.
+        삭제를 누르는 즉시 계정과 아래 데이터가 영구 삭제됩니다. Apple로 로그인한 계정은 본인 확인을 위해 Apple 로그인 창이
+        한 번 열리고, 퀀트뷰와 Apple 계정의 로그인 연결도 함께 해제됩니다.
       </p>
 
       <h2>2. 카카오톡 채널을 통한 요청</h2>
@@ -58,12 +58,12 @@ export default function AccountDeletePage() {
       <h2>4. 삭제 범위</h2>
       <p>계정 삭제 요청이 완료되면 다음 데이터가 영구 삭제됩니다.</p>
       <ul>
-        <li>회원 정보 (이메일, Google 계정 식별자, 프로필 사진 URL)</li>
-        <li>AI 분석 히스토리 (종합 분석 · 물타기 분석 결과)</li>
+        <li>회원 정보 (이메일, 이름, Google·Apple 계정 식별자)</li>
+        <li>AI 분석 기록</li>
         <li>포트폴리오 데이터 (보유 종목, 평균 단가, 수량)</li>
         <li>관심종목 + 사용자 폴더</li>
-        <li>FCM 토큰 + 알림 설정</li>
-        <li>텔레그램 chat_id (연동 시점)</li>
+        <li>알림 토큰 + 알림 설정</li>
+        <li>텔레그램 연동 정보</li>
         <li>일별 사용량 기록</li>
       </ul>
 
@@ -78,22 +78,22 @@ export default function AccountDeletePage() {
 
       <h2>6. 처리 기간</h2>
       <ul>
-        <li>요청 접수: 24시간 이내 확인 응답</li>
-        <li>계정 비활성화: 본인 확인 통과 즉시</li>
-        <li>데이터 영구 삭제: 요청 접수 후 7일 이내</li>
+        <li>앱 안에서 삭제: 즉시 영구 삭제</li>
+        <li>카카오톡·이메일 요청: 24시간 이내 확인 응답, 요청 접수 후 7일 이내 영구 삭제</li>
       </ul>
 
       <h2>7. 주의 사항</h2>
       <ul>
         <li>계정 삭제 후에는 같은 데이터를 복구할 수 없습니다.</li>
-        <li>같은 Google 계정으로 재가입은 가능하나, 옛 데이터는 가져올 수 없습니다.</li>
-        <li>유료 구독 중인 경우 Google Play 콘솔에서 구독 해지를 먼저 진행해주세요.</li>
+        <li>같은 Google·Apple 계정으로 다시 가입할 수 있으나, 옛 데이터는 가져올 수 없습니다.</li>
+        <li>
+          유료 구독은 계정을 삭제해도 자동으로 해지되지 않습니다. App Store 또는 Google Play의 구독 관리에서 해지해 주세요.
+        </li>
       </ul>
 
       <h2>8. 문의</h2>
       <p>계정 삭제 요청에 관한 문의는 다음 경로로 접수할 수 있습니다.</p>
       <ul>
-        <li><strong>개인정보 보호책임자</strong>: 임병하</li>
         <li>이메일: <a href="mailto:lbh939@gmail.com">lbh939@gmail.com</a></li>
         <li>
           카카오톡 채널:{" "}
